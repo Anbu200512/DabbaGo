@@ -114,13 +114,6 @@
 
     var THEME_KEY = KEYS.theme;
 
-    function prefersDark() {
-        return (
-            window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches
-        );
-    }
-
     function storedTheme() {
         try {
             var v = window.localStorage.getItem(THEME_KEY);
@@ -132,7 +125,7 @@
 
     DG.theme = {
         get: function () {
-            return storedTheme() || (prefersDark() ? "dark" : "light");
+            return storedTheme() || "light";
         },
         isDark: function () {
             return document.documentElement.classList.contains("dark");
@@ -175,16 +168,6 @@
             return DG.theme.set(DG.theme.isDark() ? "light" : "dark");
         }
     };
-
-    /* Keep in sync if the OS preference changes and the user has no saved choice */
-    if (window.matchMedia) {
-        var mq = window.matchMedia("(prefers-color-scheme: dark)");
-        var onScheme = function (e) {
-            if (!storedTheme()) DG.theme.apply(e.matches ? "dark" : "light", { persist: false });
-        };
-        if (mq.addEventListener) mq.addEventListener("change", onScheme);
-        else if (mq.addListener) mq.addListener(onScheme);
-    }
 
     /* Any element with [data-dg-theme-toggle] flips the theme (delegated) */
     document.addEventListener("click", function (e) {

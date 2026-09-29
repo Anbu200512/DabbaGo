@@ -10,7 +10,7 @@
 (function () {
   try {
     var saved = localStorage.getItem("dabbago_theme");
-    var dark = saved === "dark" || (!saved && matchMedia("(prefers-color-scheme: dark)").matches);
+    var dark = saved === "dark";
     document.documentElement.classList.toggle("dark", dark);
   } catch (e) {}
 })();
