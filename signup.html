@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fffbf4">
+<title>Create an account — DabbaGo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/auth-page.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body data-page="signup" class="dg-auth-standalone">
+<div class="auth-quick-controls" aria-label="Display options">
+  <button type="button" class="dg-iconbtn" data-dg-dir-toggle aria-pressed="false" aria-label="Switch to right-to-left" title="Switch to RTL"><i data-lucide="arrow-right-left" class="dg-icon-ltr"></i><i data-lucide="arrow-left-right" class="dg-icon-rtl"></i></button>
+  <button type="button" class="dg-iconbtn" data-dg-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode"><i data-lucide="sun" class="dg-icon-sun"></i><i data-lucide="moon" class="dg-icon-moon"></i></button>
+</div>
+<main class="auth-stage" id="main">
+  <section class="auth-card" aria-label="Create a DabbaGo account">
+    <div class="auth-visual">
+      <img src="assets/images/kitchen.jpg" alt="A fresh homestyle meal being prepared in the DabbaGo kitchen" width="800" height="600">
+      <a class="auth-brand" href="index.html" aria-label="DabbaGo home"><span class="dg-logo-mark"><i data-lucide="cooking-pot"></i></span><span>Dabba<em>Go</em></span></a>
+      <div class="auth-visual-copy">
+        <span class="dg-badge dg-badge-solid"><i data-lucide="heart-handshake"></i>Meet your kitchen family</span>
+        <h1>Good food.<br>Good days.</h1>
+        <p>Join us for honest, freshly cooked meals made with care and delivered right to your door.</p>
+        <div class="auth-rating"><span aria-hidden="true">★★★★★</span> Freshly made for you, every day</div>
+      </div>
+      <span class="auth-image-shade" aria-hidden="true"></span>
+    </div>
+    <div class="auth-panel auth-panel-signup">
+      <div class="auth-heading"><p class="dg-eyebrow">Join the family</p><h2>Create your account</h2><p>Fresh, home-style meals start here.</p></div>
+      <form id="dg-signup-form" class="auth-form auth-signup-form" novalidate>
+        <div class="dg-field"><label class="dg-label" for="signup-name">Full name</label><div class="dg-input-wrap"><i data-lucide="user-round"></i><input class="dg-input" id="signup-name" name="name" autocomplete="name" placeholder="Your full name" required></div><div class="dg-error"></div></div>
+        <div class="auth-fields-row">
+          <div class="dg-field"><label class="dg-label" for="signup-email">Email address</label><div class="dg-input-wrap"><i data-lucide="mail"></i><input class="dg-input" id="signup-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div><div class="dg-error"></div></div>
+          <div class="dg-field"><label class="dg-label" for="signup-mobile">Mobile number</label><div class="dg-input-wrap"><i data-lucide="phone"></i><input class="dg-input" id="signup-mobile" name="mobile" type="tel" autocomplete="tel" placeholder="10-digit number" required></div><div class="dg-error"></div></div>
+        </div>
+        <div class="auth-fields-row">
+          <div class="dg-field"><label class="dg-label" for="signup-password">Password</label><div class="dg-input-wrap"><i data-lucide="lock-keyhole"></i><input class="dg-input" id="signup-password" name="password" type="password" autocomplete="new-password" placeholder="Create a password" required><button class="dg-trailing" type="button" data-dg-toggle-pass="signup-password" aria-label="Show password"><i data-lucide="eye"></i></button></div><div class="dg-error"></div></div>
+          <div class="dg-field"><label class="dg-label" for="signup-confirm">Confirm password</label><div class="dg-input-wrap"><i data-lucide="lock-keyhole"></i><input class="dg-input" id="signup-confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Repeat password" required></div><div class="dg-error"></div></div>
+        </div>
+        <div class="dg-field"><label class="dg-label" for="signup-address">Delivery address</label><div class="dg-input-wrap"><i data-lucide="map-pin"></i><input class="dg-input" id="signup-address" name="address" autocomplete="street-address" placeholder="Flat, building and street" required></div><div class="dg-error"></div></div>
+        <div id="dg-strength" class="auth-strength"><span data-dg-strength-bar></span><span data-dg-strength-bar></span><span data-dg-strength-bar></span><span data-dg-strength-bar></span><span data-dg-strength-bar></span><small data-dg-strength-label></small></div>
+        <div class="dg-field auth-terms"><label class="dg-check"><input type="checkbox" name="terms" required><span>I agree to the terms and privacy policy.</span></label></div>
+        <button class="dg-btn dg-btn-primary dg-btn-block auth-submit" type="submit"><span>Create account</span><i data-lucide="arrow-right"></i></button>
+      </form>
+      <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+    </div>
+  </section>
+</main>
+<div id="dg-modal-root"></div>
+<script defer src="js/main.js"></script>
+<script defer src="js/auth.js"></script>
+<script defer src="js/delivery.js"></script>
+<script defer src="js/plans.js"></script>
+<script defer src="js/menu.js"></script>
+</body>
+</html>

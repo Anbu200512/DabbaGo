@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fffbf4">
+<title>Delivery Areas, Zones &amp; Timings — DabbaGo</title>
+<meta name="description" content="Check if DabbaGo delivers to your pincode. Five delivery zones across Mumbai, Navi Mumbai, Pune, Kolkata and Bengaluru with charges, minimum order values and delivery timings.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2661c'/%3E%3Cpath d='M8.5 12.5h15v6.5a7.5 7.5 0 0 1-15 0z' fill='none' stroke='white' stroke-width='2.1' stroke-linejoin='round'/%3E%3Cpath d='M7.5 12.5h17' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3Cpath d='M12 9.5h8' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>
+/* Apply the saved theme and text direction before first paint so there is no flash */
+(function () {
+  try {
+    var k = "dabbago_theme";
+    var s = localStorage.getItem(k);
+    var m = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var t = (s === "light" || s === "dark") ? s : (m ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", t === "dark");
+    document.documentElement.style.colorScheme = t;
+  } catch (e) {}
+  try {
+    var d = localStorage.getItem("dabbago_dir");
+    document.documentElement.setAttribute("dir", d === "rtl" ? "rtl" : "ltr");
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        cream: 'var(--dg-bg)', softbg: 'var(--dg-bg-soft)', surface: 'var(--dg-surface)',
+        surface2: 'var(--dg-surface-2)', surface3: 'var(--dg-surface-3)', line: 'var(--dg-line)',
+        linestrong: 'var(--dg-line-strong)', ink: 'var(--dg-ink)', inksoft: 'var(--dg-ink-soft)',
+        inkmute: 'var(--dg-ink-mute)', brand: 'var(--dg-brand)', brandsoft: 'var(--dg-brand-soft)',
+        leaf: 'var(--dg-green)', leafsoft: 'var(--dg-green-soft)', cocoa: 'var(--dg-brown)'
+      },
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<link rel="stylesheet" href="css/styles.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body data-page="delivery">
+<a class="dg-skip" href="#main">Skip to main content</a>
+<div id="dg-nav-root"></div>
+
+<main id="main" class="dg-main">
+
+  <!-- ================= PAGE HEAD ================= -->
+  <section class="da-hero">
+    <div class="dg-shell">
+      <div class="da-hero-inner" data-dg-reveal>
+          <p class="dg-eyebrow"><i data-lucide="map"></i>Coverage</p>
+          <h1 class="da-hero-title">Where DabbaGo delivers</h1>
+          <p class="dg-lede da-hero-lede">
+            Five zones across five cities, each with its own delivery window and charge. If your society
+            or hostel is close to a zone boundary, we will still deliver &mdash; just call us first so
+            we can add it to the route.
+          </p>
+          <div class="da-hero-badges">
+            <span class="dg-badge dg-badge-green"><i data-lucide="truck"></i>35 pincodes covered</span>
+            <span class="dg-badge dg-badge-orange"><i data-lucide="clock"></i>25&ndash;65 minute delivery</span>
+            <span class="dg-badge dg-badge-brown"><i data-lucide="shield-check"></i>FSSAI certified riders</span>
+          </div>
+          <a class="dg-btn dg-btn-primary dg-btn-lg da-hero-action" href="#check">
+            <i data-lucide="search"></i>Check my pincode
+          </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHECKER ================= -->
+  <section class="da-checkbar" id="check">
+    <div class="dg-shell">
+      <div class="da-checkbar-inner" data-dg-reveal>
+        <div class="da-checkbar-heading">
+          <h2><i data-lucide="navigation"></i>Availability checker</h2>
+          <p>Try <strong>400053</strong> (Andheri West), <strong>411038</strong> (Pune) or <strong>560034</strong> (Bengaluru).</p>
+        </div>
+        <form id="dg-area-form" class="da-check-form" novalidate>
+          <div class="dg-field">
+            <label class="dg-label" for="dg-pin">Pincode <span class="req">*</span></label>
+            <div class="dg-input-wrap">
+              <i data-lucide="map-pin"></i>
+              <input class="dg-input" type="text" id="dg-pin" name="pincode" inputmode="numeric"
+                     maxlength="6" placeholder="400053" autocomplete="postal-code" required>
+            </div>
+            <p class="dg-error" id="dg-pin-error"><i data-lucide="circle-alert"></i>Enter a 6-digit pincode.</p>
+          </div>
+          <div class="dg-field">
+            <label class="dg-label" for="dg-area-name">Area or locality <span class="req">*</span></label>
+            <div class="dg-input-wrap">
+              <i data-lucide="home"></i>
+              <input class="dg-input" type="text" id="dg-area-name" name="area" list="dg-area-options"
+                     placeholder="Andheri West" autocomplete="address-level2" required>
+            </div>
+            <datalist id="dg-area-options"></datalist>
+            <p class="dg-error" id="dg-area-name-error"><i data-lucide="circle-alert"></i>Tell us your area so we can match it.</p>
+          </div>
+          <div class="da-check-actions">
+            <button type="submit" class="dg-btn dg-btn-primary"><i data-lucide="search"></i>Check availability</button>
+            <button type="button" class="dg-btn dg-btn-ghost" id="dg-use-saved"><i data-lucide="user-round"></i>Use saved address</button>
+          </div>
+          <div id="dg-area-result" class="is-hidden da-check-result"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DELIVERY ZONES ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+      <h2 class="text-xl" data-dg-reveal>Our delivery zones</h2>
+      <p class="dg-lede" data-dg-reveal>Tap a zone to see the pincodes we cover.</p>
+      <div id="dg-zones-grid" class="grid gap-4 mt-4" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))">
+        <p class="dg-lede">Loading zones…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FULL AREA LIST ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="list"></i>Every locality on our list</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">Areas we serve today</h2>
+        <p class="dg-lede">Can&rsquo;t see your society? It is probably two streets away from a listed area &mdash; call us and we will add your gate to the route.</p>
+      </div>
+      <div id="dg-area-list" class="grid gap-4 mt-7" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))">
+        <p class="dg-lede">Loading areas…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TIMINGS ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+      <div class="grid gap-6 lg:grid-cols-2 lg:items-start">
+
+        <div class="min-w-0" data-dg-reveal>
+          <p class="dg-eyebrow"><i data-lucide="clock"></i>Daily timings</p>
+          <h2 class="text-2xl sm:text-3xl mt-2">When your tiffin arrives</h2>
+          <p class="dg-lede mt-3">
+            Meals are cooked the same night and delivered in fixed one-hour windows. You can move a
+            delivery to a different window from your dashboard, as long as you do it before the cut-off.
+          </p>
+
+          <div class="dg-card dg-card-pad mt-5">
+            <dl class="dg-meta-list">
+              <div><dt>Breakfast window</dt><dd>7:00 &ndash; 8:00 AM</dd></div>
+              <div><dt>Order cut-off for breakfast</dt><dd>Previous day, 9:00 PM</dd></div>
+              <div><dt>Lunch window</dt><dd>12:30 &ndash; 1:30 PM</dd></div>
+              <div><dt>Order cut-off for lunch</dt><dd>Same day, 10:00 AM</dd></div>
+              <div><dt>Dinner window</dt><dd>7:30 &ndash; 8:30 PM</dd></div>
+              <div><dt>Order cut-off for dinner</dt><dd>Same day, 5:00 PM</dd></div>
+            </dl>
+          </div>
+
+          <div class="dg-card dg-card-pad mt-4 flex items-start gap-3">
+            <span class="dg-icon-tile dg-icon-tile-green"><i data-lucide="info"></i></span>
+            <p class="text-sm" style="color:var(--dg-ink-soft)">
+              Sunday is our lowest-demand day, so we run a slightly wider window between 12:00 and
+              3:00 PM. If we are running more than 60 minutes late you do not need to ask &mdash; your
+              next delivery is automatically free.
+            </p>
+          </div>
+        </div>
+
+        <div class="min-w-0" data-dg-reveal data-dg-delay="1">
+          <div class="dg-media dg-media-4x3" style="border-radius:1.5rem;box-shadow:var(--dg-shadow-md);border:1px solid var(--dg-line)">
+            <img src="assets/images/bike-delivery.jpg" alt="A delivery rider carrying a tiffin bag through a city street" width="800" height="600" loading="lazy">
+          </div>
+
+          <div class="dg-grid-auto mt-4" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr))">
+            <div class="dg-card dg-card-pad">
+              <p class="text-sm font-bold flex items-center gap-2"><i data-lucide="package"></i>Free delivery</p>
+              <p class="text-sm dg-lede mt-1">In Zone 1 always, and in every zone on monthly plans.</p>
+            </div>
+            <div class="dg-card dg-card-pad">
+              <p class="text-sm font-bold flex items-center gap-2"><i data-lucide="building-2"></i>Society handover</p>
+              <p class="text-sm dg-lede mt-1">Our rider marks "no tiffin" and leaves it with the gate.</p>
+            </div>
+            <div class="dg-card dg-card-pad">
+              <p class="text-sm font-bold flex items-center gap-2"><i data-lucide="message-circle"></i>Live updates</p>
+              <p class="text-sm dg-lede mt-1">A WhatsApp ping when your rider is five minutes away.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+      <div class="dg-card dg-card-pad text-center" style="padding-block:2.25rem;max-width:46rem;margin-inline:auto" data-dg-reveal>
+        <span class="dg-icon-tile mx-auto"><i data-lucide="hand-platter"></i></span>
+        <h2 class="text-2xl sm:text-3xl mt-3">We deliver in your area</h2>
+        <p class="dg-lede mt-2">Pick a plan, tell us your hostel or flat, and your first tiffin is on its way the next day.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center mt-5">
+          <a class="dg-btn dg-btn-primary dg-btn-lg" href="plans.html">
+            <i data-lucide="wallet"></i>Choose a plan
+          </a>
+          <a class="dg-btn dg-btn-outline dg-btn-lg" href="signup.html">
+            <i data-lucide="user-round"></i>Create an account
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="dg-footer-root"></div>
+<div id="dg-modal-root"></div>
+
+<script defer src="js/main.js"></script>
+<script defer src="js/nav.js"></script>
+<script defer src="js/footer.js"></script>
+<script defer src="js/delivery.js"></script>
+</body>
+</html>

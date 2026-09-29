@@ -1,0 +1,302 @@
+/* --------------------------------------------------------------------------
+   About page — hero only.
+   Scoped to the ab- prefix so nothing here can leak into another page.
+   Everything uses the shared --dg-* tokens, so light and dark mode come free.
+
+   The hero deliberately mirrors the Contact page hero: one centred column,
+   max-width 44rem, no imagery. About and Contact should feel like the same
+   family of pages.
+   -------------------------------------------------------------------------- */
+
+.ab-hero {
+  position: relative;
+  overflow: hidden;
+  background-image:
+    linear-gradient(90deg, color-mix(in srgb, var(--dg-bg) 94%, transparent), color-mix(in srgb, var(--dg-bg) 80%, transparent)),
+    url("../assets/images/kitchen-team.jpg");
+  background-position: center, center 54%;
+  background-size: cover;
+}
+
+/* Vertical padding trimmed well below the Contact hero's 2.5rem/2.75rem so
+   About opens faster. The visual pattern is identical, just shallower. */
+.ab-hero-inner {
+  max-width: 44rem;
+  margin-inline: auto;
+  padding-block: 1.75rem 2rem;
+  text-align: center;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+@media (min-width: 1024px) {
+  .ab-hero-inner { padding-block: 2rem 2.25rem; }
+}
+
+.ab-hero-inner .dg-lede {
+  margin-inline: auto;
+  max-width: 40rem;
+}
+
+/* Trimmed from the Contact hero's 3.2rem cap so the whole band is shorter.
+   Same centred single-column structure, just a smaller headline. */
+.ab-hero-h1 { margin-top: 0.75rem; }
+
+.ab-hero-lede { margin-top: 0.625rem; }
+
+.ab-hero-inner .dg-lede + .ab-actions { margin-top: 1.25rem; }
+
+.ab-how-card { display: flex; flex-direction: column; min-width: 0; height: 100%; }
+.ab-how-card > :last-child { align-self: flex-start; margin-top: auto !important; padding-top: 0.85rem; }
+
+.ab-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.375rem;
+}
+
+/* Trust strip. width:fit-content so it hugs its contents on wide screens
+   and falls back to full width once the items wrap. */
+.ab-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem 1.4rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.25rem auto 0;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--dg-line);
+  border-radius: 1rem;
+  background: var(--dg-surface);
+  box-shadow: var(--dg-shadow-sm);
+}
+
+.ab-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.86rem;
+  line-height: 1.3;
+  color: var(--dg-ink-soft);
+}
+
+.ab-trust-item svg { flex: 0 0 auto; }
+
+/* --------------------------------------------------------------------------
+   Stats band
+   Was four loose number/label pairs in a 2x4 grid, left aligned. Now one
+   centred bordered card with dividers and an icon per stat.
+   -------------------------------------------------------------------------- */
+.ab-stats-band { padding-block: 2.5rem; }
+
+.ab-stats-eyebrow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.ab-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--dg-line);
+  border-radius: 1.25rem;
+  background: var(--dg-surface);
+  box-shadow: var(--dg-shadow-sm);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .ab-stats { grid-template-columns: repeat(4, 1fr); }
+}
+
+.ab-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.4rem 0.9rem;
+  text-align: center;
+}
+
+.ab-stat-ico {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.15rem;
+  border-radius: 0.7rem;
+  background: var(--dg-brand-soft);
+  color: var(--dg-brand-soft-ink);
+  flex: 0 0 auto;
+}
+
+.ab-stat-ico.is-green {
+  background: var(--dg-green-soft);
+  color: var(--dg-green-ink);
+}
+
+.ab-stat-ico.is-brown {
+  background: var(--dg-brown-soft);
+  color: var(--dg-brown);
+}
+
+.ab-stat-ico svg { width: 1.15rem; height: 1.15rem; }
+
+/* Dividers for the 2x2 layout. Written per-child rather than with a sibling
+   selector because in a 2-column grid the third item is the first on its
+   row, so it must not get a left border. */
+.ab-stat:nth-child(2) { border-left: 1px solid var(--dg-line); }
+.ab-stat:nth-child(3) { border-top: 1px solid var(--dg-line); }
+
+.ab-stat:nth-child(4) {
+  border-left: 1px solid var(--dg-line);
+  border-top: 1px solid var(--dg-line);
+}
+
+/* In the 4-across layout every item is on one row, so drop the row divider
+   and give items 3 and 4 the left border instead. */
+@media (min-width: 768px) {
+  .ab-stat:nth-child(3) {
+    border-top: 0;
+    border-left: 1px solid var(--dg-line);
+  }
+
+  .ab-stat:nth-child(4) { border-top: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   Our story
+   -------------------------------------------------------------------------- */
+.ab-story {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 8% 10%, color-mix(in srgb, var(--dg-green-soft) 65%, transparent), transparent 34rem),
+    var(--dg-bg-soft);
+}
+
+.ab-story-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .ab-story-grid { grid-template-columns: 1.05fr 0.95fr; gap: clamp(3rem, 7vw, 6rem); }
+}
+
+.ab-story-copy { min-width: 0; }
+
+.ab-story-title {
+  margin-top: 0.75rem;
+  font-size: clamp(2.25rem, 4.7vw, 3.75rem);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  color: var(--dg-ink);
+}
+
+.ab-story-title span { color: var(--dg-brand); }
+
+.ab-story-intro {
+  max-width: 35rem;
+  margin-top: 1.1rem;
+  color: var(--dg-ink-soft);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.ab-story-journey {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.7rem;
+}
+
+.ab-story-milestone {
+  position: relative;
+  padding: 1rem 0.9rem;
+  border-top: 2px solid var(--dg-brand);
+  background: color-mix(in srgb, var(--dg-surface) 72%, transparent);
+}
+
+.ab-story-year {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--dg-brand);
+  font-size: 0.77rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ab-story-milestone p { margin: 0; color: var(--dg-ink-soft); font-size: 0.88rem; line-height: 1.55; }
+.ab-story-milestone strong { color: var(--dg-ink); }
+
+.ab-story-quote {
+  display: flex;
+  gap: 0.85rem;
+  margin: 1.4rem 0 0;
+  padding: 1.1rem 1.15rem;
+  border: 1px solid var(--dg-line);
+  border-radius: 1rem;
+  background: var(--dg-surface);
+  box-shadow: var(--dg-shadow-sm);
+}
+
+.ab-story-quote > svg { flex: 0 0 auto; width: 1.25rem; color: var(--dg-brand); }
+.ab-story-quote p { margin: 0; color: var(--dg-ink-soft); font-size: 0.9rem; line-height: 1.65; }
+.ab-story-quote cite { display: block; margin-top: 0.55rem; color: var(--dg-ink); font-size: 0.8rem; font-style: normal; font-weight: 750; }
+.ab-story-quote cite span { padding-inline: 0.2rem; color: var(--dg-brand); }
+
+.ab-story-values { display: flex; flex-wrap: wrap; gap: 0.65rem 1.2rem; margin-top: 1.15rem; }
+.ab-story-values span { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--dg-ink-soft); font-size: 0.82rem; font-weight: 650; }
+.ab-story-values svg { width: 1rem; height: 1rem; color: var(--dg-green-ink); }
+
+.ab-story-visual { position: relative; min-width: 0; padding: 0 0.5rem 2.6rem 0; }
+.ab-story-photo { position: relative; overflow: hidden; aspect-ratio: 0.98; border: 1px solid var(--dg-line); border-radius: 1.6rem; background: var(--dg-surface); box-shadow: var(--dg-shadow-lg); }
+.ab-story-photo::after { position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgb(20 15 10 / 58%)); content: ""; pointer-events: none; }
+.ab-story-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ab-story-photo-label { position: absolute; z-index: 1; right: 1.1rem; bottom: 1.1rem; left: 1.1rem; display: flex; align-items: center; gap: 0.55rem; color: #fff; font-size: 0.92rem; font-weight: 700; }
+.ab-story-photo-label svg { width: 1.1rem; color: #f4c16b; }
+
+.ab-story-savings {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: min(92%, 24rem);
+  padding: 1rem;
+  border: 1px solid var(--dg-line);
+  border-radius: 1rem;
+  background: var(--dg-surface);
+  box-shadow: var(--dg-shadow-lg);
+}
+
+.ab-story-savings-icon { display: grid; flex: 0 0 auto; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 0.8rem; background: var(--dg-brand-soft); color: var(--dg-brand); }
+.ab-story-savings-icon svg { width: 1.25rem; }
+.ab-story-savings strong { color: var(--dg-ink); font-size: 0.9rem; }
+.ab-story-savings p { margin: 0.2rem 0 0; color: var(--dg-ink-soft); font-size: 0.78rem; line-height: 1.45; }
+.ab-story-savings-arrow { width: 1.15rem; margin-left: auto; color: var(--dg-brand); }
+
+@media (max-width: 480px) {
+  .ab-story-journey { gap: 0.5rem; }
+  .ab-story-milestone { padding: 0.85rem 0.65rem; }
+  .ab-story-visual { padding-right: 0; }
+  .ab-story-savings { right: 0.25rem; }
+}
+
+.ab-team-photo {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+  border: 3px solid var(--dg-brand-soft);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--dg-shadow-sm);
+}

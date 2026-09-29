@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fffbf4">
+<title>About Us — DabbaGo</title>
+<meta name="description" content="DabbaGo has cooked fresh, homely tiffin meals in small batches since 2019. Read our story, how we cook, the kitchen team behind 12,000 daily meals and why 3,900+ subscribers eat with us.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2661c'/%3E%3Cpath d='M8.5 12.5h15v6.5a7.5 7.5 0 0 1-15 0z' fill='none' stroke='white' stroke-width='2.1' stroke-linejoin='round'/%3E%3Cpath d='M7.5 12.5h17' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3Cpath d='M12 9.5h8' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>
+/* Apply the saved theme and text direction before first paint so there is no flash */
+(function () {
+  try {
+    var k = "dabbago_theme";
+    var s = localStorage.getItem(k);
+    var m = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var t = (s === "light" || s === "dark") ? s : (m ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", t === "dark");
+    document.documentElement.style.colorScheme = t;
+  } catch (e) {}
+  try {
+    var d = localStorage.getItem("dabbago_dir");
+    document.documentElement.setAttribute("dir", d === "rtl" ? "rtl" : "ltr");
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        cream: 'var(--dg-bg)', softbg: 'var(--dg-bg-soft)', surface: 'var(--dg-surface)',
+        surface2: 'var(--dg-surface-2)', surface3: 'var(--dg-surface-3)', line: 'var(--dg-line)',
+        linestrong: 'var(--dg-line-strong)', ink: 'var(--dg-ink)', inksoft: 'var(--dg-ink-soft)',
+        inkmute: 'var(--dg-ink-mute)', brand: 'var(--dg-brand)', brandsoft: 'var(--dg-brand-soft)',
+        leaf: 'var(--dg-green)', leafsoft: 'var(--dg-green-soft)', cocoa: 'var(--dg-brown)'
+      },
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/about.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body data-page="about">
+<a class="dg-skip" href="#main">Skip to main content</a>
+<div id="dg-nav-root"></div>
+
+<main id="main" class="dg-main">
+
+  <!-- ================= HERO ================= -->
+  <section class="ab-hero">
+    <span class="dg-blob dg-blob-orange" style="width:20rem;height:20rem;top:-5rem;right:-6rem"></span>
+    <span class="dg-blob dg-blob-green" style="width:16rem;height:16rem;bottom:-6rem;left:-5rem"></span>
+
+    <div class="dg-shell relative" style="z-index:1">
+      <div class="ab-hero-inner" data-dg-reveal>
+        <span class="dg-badge dg-badge-orange"><i data-lucide="sparkles"></i>Cooking fresh since 2019</span>
+
+        <h1 class="dg-display ab-hero-h1" style="font-size:clamp(1.85rem,5.6vw,2.7rem)">
+          The food we missed,<br>cooked for <span style="color:var(--dg-brand)">everyone</span>
+        </h1>
+
+        <p class="dg-lede ab-hero-lede" style="font-size:0.99rem">
+          DabbaGo began in a 40-square-foot kitchen in 2019. We still cook twelve thousand
+          tiffins a day, fresh every night.
+        </p>
+
+        <div class="ab-actions">
+          <a class="dg-btn dg-btn-primary dg-btn-lg" href="plans.html">
+            <i data-lucide="wallet"></i>See our plans
+          </a>
+          <a class="dg-btn dg-btn-outline dg-btn-lg" href="contact.html">
+            <i data-lucide="headset"></i>Talk to the kitchen
+          </a>
+        </div>
+
+        <div class="ab-trust">
+          <span class="ab-trust-item">
+            <i data-lucide="star" class="dg-tick" style="color:var(--dg-brand)"></i>
+            <strong style="color:var(--dg-ink)">4.8/5</strong> from 3,900+ students
+          </span>
+          <span class="ab-trust-item">
+            <i data-lucide="shield-check" class="dg-tick"></i>
+            FSSAI licensed kitchen
+          </span>
+          <span class="ab-trust-item">
+            <i data-lucide="leaf" class="dg-tick" style="color:var(--dg-green)"></i>
+            Veg &amp; non-veg daily
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS ================= -->
+  <section class="ab-stats-band">
+    <div class="dg-shell">
+      <p class="dg-eyebrow ab-stats-eyebrow"><i data-lucide="badge-check"></i>DabbaGo in numbers</p>
+
+      <div class="ab-stats" data-dg-reveal>
+        <div class="ab-stat">
+          <span class="ab-stat-ico"><i data-lucide="flame"></i></span>
+          <p class="dg-stats-num">2019</p>
+          <p class="dg-stat-label">Cooking since</p>
+        </div>
+
+        <div class="ab-stat">
+          <span class="ab-stat-ico is-green"><i data-lucide="users"></i></span>
+          <p class="dg-stats-num">12k+</p>
+          <p class="dg-stat-label">Active subscribers</p>
+        </div>
+
+        <div class="ab-stat">
+          <span class="ab-stat-ico is-brown"><i data-lucide="calendar-days"></i></span>
+          <p class="dg-stats-num">7</p>
+          <p class="dg-stat-label">Day meal rotation</p>
+        </div>
+
+        <div class="ab-stat">
+          <span class="ab-stat-ico"><i data-lucide="map-pin"></i></span>
+          <p class="dg-stats-num">5</p>
+          <p class="dg-stat-label">Cities covered</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUR STORY ================= -->
+  <section class="dg-section ab-story" aria-labelledby="ab-story-title">
+    <div class="dg-shell">
+      <div class="ab-story-grid">
+        <div class="ab-story-copy" data-dg-reveal>
+          <p class="dg-eyebrow"><i data-lucide="book-open"></i>Our story</p>
+          <h2 id="ab-story-title" class="ab-story-title">A shared tiffin.<br><span>A better way to eat.</span></h2>
+          <p class="ab-story-intro">In 2019, one simple question started it all: why couldn&rsquo;t everyday meals be both affordable and delicious?</p>
+
+          <div class="ab-story-journey" aria-label="Our journey">
+            <div class="ab-story-milestone">
+              <span class="ab-story-year">2019</span>
+              <p><strong>Eleven subscribers.</strong> One small kitchen, cooking with care.</p>
+            </div>
+            <div class="ab-story-milestone">
+              <span class="ab-story-year">Today</span>
+              <p><strong>Five cities.</strong> The same fresh food and family-first standards.</p>
+            </div>
+          </div>
+
+          <blockquote class="ab-story-quote">
+            <i data-lucide="quote" aria-hidden="true"></i>
+            <div>
+              <p>We taste every batch before it goes out. If it isn&rsquo;t food we&rsquo;d feed our own families, it doesn&rsquo;t leave the kitchen.</p>
+              <cite>Meera <span>·</span> Head of Kitchen</cite>
+            </div>
+          </blockquote>
+
+          <div class="ab-story-values">
+            <span><i data-lucide="leaf"></i>Real ingredients</span>
+            <span><i data-lucide="package-check"></i>Freshly packed</span>
+          </div>
+        </div>
+
+        <div class="ab-story-visual" data-dg-reveal data-dg-delay="1">
+          <div class="ab-story-photo">
+            <img src="assets/images/cooker-tiffin.jpg" alt="A steel tiffin being packed with rice, dal and vegetables" width="800" height="800" loading="lazy">
+            <div class="ab-story-photo-label"><i data-lucide="heart"></i>Made with care, every day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY DABBAGO ================= -->
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="list-checks"></i>How it works</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">Four steps from signup to a full tiffin</h2>
+        <p class="dg-lede">No app to install, no auto-renewal trap. Just a short form and a WhatsApp reminder.</p>
+      </div>
+
+      <ol class="grid gap-4 mt-8" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr))">
+        <li class="dg-card dg-card-pad ab-how-card" data-dg-reveal>
+          <div class="flex items-center gap-2.5">
+            <span class="dg-stepnum">1</span>
+            <h3 class="text-base">Check your area</h3>
+          </div>
+          <p class="text-sm dg-lede mt-2.5">Enter your pincode and we will tell you the delivery window and charges for your society or campus.</p>
+          <a class="dg-btn dg-btn-ghost dg-btn-sm mt-2" href="delivery-area.html">Check availability<i data-lucide="chevron-right"></i></a>
+        </li>
+
+        <li class="dg-card dg-card-pad ab-how-card" data-dg-reveal data-dg-delay="1">
+          <div class="flex items-center gap-2.5">
+            <span class="dg-stepnum">2</span>
+            <h3 class="text-base">Choose your plan</h3>
+          </div>
+          <p class="text-sm dg-lede mt-2.5">Lunch only, dinner only or the full day. Weekly to start, monthly to save. You can change meals each week.</p>
+          <a class="dg-btn dg-btn-ghost dg-btn-sm mt-2" href="plans.html">See the plans<i data-lucide="chevron-right"></i></a>
+        </li>
+
+        <li class="dg-card dg-card-pad ab-how-card" data-dg-reveal data-dg-delay="2">
+          <div class="flex items-center gap-2.5">
+            <span class="dg-stepnum">3</span>
+            <h3 class="text-base">We cook and pack</h3>
+          </div>
+          <p class="text-sm dg-lede mt-2.5">Fresh every night at 11 PM, sealed with your name on it and loaded into insulated boxes for the morning run.</p>
+          <span class="dg-badge dg-badge-orange" style="margin-top:.75rem"><i data-lucide="package"></i>Sealed &amp; labelled</span>
+        </li>
+
+        <li class="dg-card dg-card-pad ab-how-card" data-dg-reveal data-dg-delay="3">
+          <div class="flex items-center gap-2.5">
+            <span class="dg-stepnum">4</span>
+            <h3 class="text-base">Hot tiffin, on time</h3>
+          </div>
+          <p class="text-sm dg-lede mt-2.5">Our rider reaches you inside the promised hour. Track, pause or reschedule any time from your dashboard.</p>
+          <a class="dg-btn dg-btn-ghost dg-btn-sm mt-2" href="signup.html">Create an account<i data-lucide="chevron-right"></i></a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= THE TEAM ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="users"></i>The people behind the tiffin</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">A small team that eats what it cooks</h2>
+        <p class="dg-lede">Nine people in the kitchen, six riders on the road, and one support desk that actually picks up the phone.</p>
+      </div>
+
+      <div class="grid gap-4 mt-8" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))">
+
+        <article class="dg-card dg-card-pad" data-dg-reveal>
+          <img class="ab-team-photo" src="assets/images/avatars/sneha-menon.jpg" alt="Portrait of Meera Rao" width="300" height="300" loading="lazy">
+          <span class="dg-icon-tile"><i data-lucide="cooking-pot"></i></span>
+          <h3 class="text-base mt-3">Meera Rao</h3>
+          <p class="text-xs font-bold mt-0.5" style="color:var(--dg-brand)">Head of Kitchen</p>
+          <p class="text-sm dg-lede mt-2">Recipes, tasting every batch, and the reason the dal does not taste like it came out of a packet.</p>
+        </article>
+
+        <article class="dg-card dg-card-pad" data-dg-reveal data-dg-delay="1">
+          <img class="ab-team-photo" src="assets/images/avatars/aarav-patil.jpg" alt="Portrait of Arjun Menon" width="300" height="300" loading="lazy">
+          <span class="dg-icon-tile dg-icon-tile-green"><i data-lucide="leaf"></i></span>
+          <h3 class="text-base mt-3">Arjun Menon</h3>
+          <p class="text-xs font-bold mt-0.5" style="color:var(--dg-brand)">Founder</p>
+          <p class="text-sm dg-lede mt-2">Started DabbaGo in 2019 with one cooker and eleven subscribers. Still answers the support WhatsApp himself.</p>
+        </article>
+
+        <article class="dg-card dg-card-pad" data-dg-reveal data-dg-delay="2">
+          <img class="ab-team-photo" src="assets/images/avatars/rohan-kulkarni.jpg" alt="Portrait of Sandeep Patil" width="300" height="300" loading="lazy">
+          <span class="dg-icon-tile dg-icon-tile-brown"><i data-lucide="bike"></i></span>
+          <h3 class="text-base mt-3">Sandeep Patil</h3>
+          <p class="text-xs font-bold mt-0.5" style="color:var(--dg-brand)">Head of Delivery</p>
+          <p class="text-sm dg-lede mt-2">Runs the morning routes across all five zones. Has never missed a promised hour in six years.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div class="dg-card dg-card-pad text-center" style="max-width:44rem;margin-inline:auto" data-dg-reveal>
+        <span class="dg-icon-tile" style="margin-inline:auto"><i data-lucide="soup"></i></span>
+        <h2 class="text-2xl sm:text-3xl mt-4">Your first tiffin is 24 hours away</h2>
+        <p class="dg-lede mt-2">
+          Plans start at &#8377;899 a week. Free delivery in Zone 1 and on every monthly plan, and you
+          can pause whenever you go home.
+        </p>
+        <div class="flex flex-wrap gap-2.5 justify-center mt-5">
+          <a class="dg-btn dg-btn-primary dg-btn-lg" href="signup.html">
+            <i data-lucide="user-round-plus"></i>Create your account
+          </a>
+          <a class="dg-btn dg-btn-outline dg-btn-lg" href="contact.html">
+            <i data-lucide="headset"></i>Talk to us first
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="dg-footer-root"></div>
+<div id="dg-modal-root"></div>
+
+<script defer src="js/main.js"></script>
+<script defer src="js/nav.js"></script>
+<script defer src="js/footer.js"></script>
+</body>
+</html>

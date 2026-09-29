@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fffbf4">
+<title>Subscription Plans &amp; Pricing — DabbaGo</title>
+<meta name="description" content="DabbaGo tiffin plans for every budget: weekly, monthly, lunch only, dinner only, full-day and a student saver plan. From &#8377;899 a week. No joining fee, pause any time.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2661c'/%3E%3Cpath d='M8.5 12.5h15v6.5a7.5 7.5 0 0 1-15 0z' fill='none' stroke='white' stroke-width='2.1' stroke-linejoin='round'/%3E%3Cpath d='M7.5 12.5h17' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3Cpath d='M12 9.5h8' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>
+/* Apply the saved theme and text direction before first paint so there is no flash */
+(function () {
+  try {
+    var k = "dabbago_theme";
+    var s = localStorage.getItem(k);
+    var m = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var t = (s === "light" || s === "dark") ? s : (m ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", t === "dark");
+    document.documentElement.style.colorScheme = t;
+  } catch (e) {}
+  try {
+    var d = localStorage.getItem("dabbago_dir");
+    document.documentElement.setAttribute("dir", d === "rtl" ? "rtl" : "ltr");
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        cream: 'var(--dg-bg)', softbg: 'var(--dg-bg-soft)', surface: 'var(--dg-surface)',
+        surface2: 'var(--dg-surface-2)', surface3: 'var(--dg-surface-3)', line: 'var(--dg-line)',
+        linestrong: 'var(--dg-line-strong)', ink: 'var(--dg-ink)', inksoft: 'var(--dg-ink-soft)',
+        inkmute: 'var(--dg-ink-mute)', brand: 'var(--dg-brand)', brandsoft: 'var(--dg-brand-soft)',
+        leaf: 'var(--dg-green)', leafsoft: 'var(--dg-green-soft)', cocoa: 'var(--dg-brown)'
+      },
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<link rel="stylesheet" href="css/styles.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body data-page="plans">
+<a class="dg-skip" href="#main">Skip to main content</a>
+<div id="dg-nav-root"></div>
+
+<main id="main" class="dg-main">
+
+  <!-- ================= PAGE HEAD ================= -->
+  <section class="pl-hero">
+    <div class="dg-shell">
+      <div class="pl-hero-inner" data-dg-reveal>
+          <p class="dg-eyebrow"><i data-lucide="wallet"></i>Pricing</p>
+          <h1 class="pl-hero-title">Plans for every kind of day</h1>
+          <p class="dg-lede pl-hero-lede">
+            One price, all the meals you chose. No joining fee, no per-delivery surcharge on monthly
+            plans, and no auto-renewal without a reminder message a day before.
+          </p>
+          <div class="pl-hero-badges">
+            <span class="dg-badge dg-badge-green"><i data-lucide="circle-check"></i>Pause any time</span>
+            <span class="dg-badge dg-badge-orange"><i data-lucide="circle-check"></i>Cancel online</span>
+            <span class="dg-badge dg-badge-brown"><i data-lucide="circle-check"></i>Student discounts</span>
+          </div>
+          <div class="pl-hero-costs" aria-label="Cost per meal by plan">
+            <span>Per meal: Weekly <strong>&#8377;64</strong> · Monthly <strong>&#8377;53</strong> · Lunch <strong>&#8377;63</strong> · Full day <strong>&#8377;50</strong></span>
+            <span>Restaurant plates: &#8377;90+</span>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CURRENT PLAN ================= -->
+  <section class="dg-section" style="padding-bottom:0">
+    <div class="dg-shell">
+      <div id="dg-current-plan">
+        <p class="dg-lede">Checking your subscription…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PLANS GRID ================= -->
+  <section id="plans-list" class="dg-section">
+    <div class="dg-shell">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="layers"></i>Six plans</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">Pick the plan that matches your routine</h2>
+        <p class="dg-lede">All prices include taxes. Delivery charges are listed per zone and are waived on monthly plans.</p>
+      </div>
+
+      <div id="dg-plans-grid" class="grid gap-4 mt-8" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))">
+        <p class="dg-lede">Loading plans…</p>
+      </div>
+
+      <!-- confirmation box (revealed after choosing a plan while signed in) -->
+      <div id="dg-plan-confirm" class="is-hidden dg-card dg-card-pad mt-6" style="border-color:var(--dg-brand);box-shadow:var(--dg-shadow-md)">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div class="flex items-start gap-3 min-w-0">
+            <span class="dg-icon-tile"><i data-lucide="credit-card"></i></span>
+            <div class="min-w-0">
+              <h3 class="text-base">Confirm your subscription</h3>
+              <p class="text-sm" style="color:var(--dg-ink-soft)">
+                <strong id="dg-plan-confirm-name">Plan</strong> at
+                <strong id="dg-plan-confirm-price">price</strong>
+              </p>
+              <p class="text-xs mt-1" style="color:var(--dg-ink-mute)">
+                Demo checkout: no gateway opens and no money leaves your account. We record the plan,
+                the payment and the first delivery date in your local dashboard.
+              </p>
+            </div>
+          </div>
+          <button type="button" class="dg-btn dg-btn-primary w-full sm:w-auto" data-confirm-plan>
+            <i data-lucide="lock"></i>Confirm &amp; activate
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMPARISON TABLE ================= -->
+  <section class="dg-section pl-comparison" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="table"></i>Side by side</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">Compare all six plans</h2>
+        <p class="dg-lede">Scroll the table sideways on a phone to see every plan.</p>
+      </div>
+
+      <div class="dg-table-wrap pl-compare-wrap mt-7" data-dg-reveal>
+        <table id="dg-compare-body" class="dg-table pl-compare-table" style="min-width:52rem">
+          <caption class="sr-only">Comparison of all DabbaGo subscription plans</caption>
+        </table>
+      </div>
+      <p class="dg-table-scroll-hint" style="margin-top:.55rem">Swipe the table sideways to see more plans</p>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell" style="max-width:46rem">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="circle-help"></i>Payment questions</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">Before you subscribe</h2>
+      </div>
+
+      <div class="mt-7" data-dg-reveal>
+        <div class="dg-acc" data-dg-acc data-open="true" data-dg-single>
+          <button type="button" class="dg-acc-btn" data-dg-acc-btn aria-expanded="true">
+            <span>Is there a joining fee or deposit?</span>
+            <span class="dg-acc-ico"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="dg-acc-panel"><div>
+            <p>No joining fee, no refundable deposit and no security charge. The only extra you may see
+            is the zone delivery charge, which is waived on every monthly plan.</p>
+          </div></div>
+        </div>
+
+        <div class="dg-acc" data-dg-acc data-open="false" data-dg-single>
+          <button type="button" class="dg-acc-btn" data-dg-acc-btn aria-expanded="false">
+            <span>Will my plan renew automatically?</span>
+            <span class="dg-acc-ico"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="dg-acc-panel"><div>
+            <p>Monthly plans renew automatically, but we always send a reminder a day before the
+            renewal date. If you do not want to continue you can cancel from the dashboard before that
+            reminder arrives and nothing will be charged.</p>
+          </div></div>
+        </div>
+
+        <div class="dg-acc" data-dg-acc data-open="false" data-dg-single>
+          <button type="button" class="dg-acc-btn" data-dg-acc-btn aria-expanded="false">
+            <span>What payment methods do you accept?</span>
+            <span class="dg-acc-ico"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="dg-acc-panel"><div>
+            <p>UPI, net banking and card. On this demonstration site the payment step is simulated and
+            stored only in your browser's local storage &mdash; no payment gateway is contacted and no
+            card details are ever requested.</p>
+          </div></div>
+        </div>
+
+        <div class="dg-acc" data-dg-acc data-open="false" data-dg-single>
+          <button type="button" class="dg-acc-btn" data-dg-acc-btn aria-expanded="false">
+            <span>Are there discounts for longer plans?</span>
+            <span class="dg-acc-ico"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="dg-acc-panel"><div>
+            <p>Yes. Weekly to monthly already saves you about 20%, and the Full-Day Plan works out at
+            roughly &#8377;50 a meal. Refer a friend and you both get 100 off your next renewal.</p>
+          </div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="dg-section pl-final-cta">
+    <div class="dg-shell">
+      <div class="pl-final-cta-card" data-dg-reveal>
+        <span class="dg-icon-tile dg-icon-tile-soft mx-auto"><i data-lucide="hand-platter"></i></span>
+        <p class="dg-eyebrow">Fresh meals, made simple</p>
+        <h2>Find a plan that fits your day.</h2>
+        <p class="dg-lede">Choose your meals, settle into a routine, and leave the cooking to us.</p>
+        <div class="pl-final-cta-actions">
+          <a class="dg-btn dg-btn-primary dg-btn-lg" href="#plans-list"><i data-lucide="layers"></i>Explore plans</a>
+          <a class="dg-btn dg-btn-outline dg-btn-lg" href="menu.html"><i data-lucide="book-open-text"></i>Browse the menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="dg-footer-root"></div>
+<div id="dg-modal-root"></div>
+
+<script defer src="js/main.js"></script>
+<script defer src="js/nav.js"></script>
+<script defer src="js/footer.js"></script>
+<script defer src="js/plans.js"></script>
+</body>
+</html>

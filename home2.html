@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fffbf4">
+<title>DabbaGo â€” Home (Variant 2)</title>
+<meta name="description" content="A second layout for DabbaGo. Homely tiffin meals cooked fresh and delivered daily to hostels, PGs and apartments across five delivery zones.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2661c'/%3E%3Cpath d='M8.5 12.5h15v6.5a7.5 7.5 0 0 1-15 0z' fill='none' stroke='white' stroke-width='2.1' stroke-linejoin='round'/%3E%3Cpath d='M7.5 12.5h17' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3Cpath d='M12 9.5h8' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>
+/* Apply the saved theme and text direction before first paint so there is no flash */
+(function () {
+  try {
+    var k = "dabbago_theme";
+    var s = localStorage.getItem(k);
+    var m = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var t = (s === "light" || s === "dark") ? s : (m ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", t === "dark");
+    document.documentElement.style.colorScheme = t;
+  } catch (e) {}
+  try {
+    var d = localStorage.getItem("dabbago_dir");
+    document.documentElement.setAttribute("dir", d === "rtl" ? "rtl" : "ltr");
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        cream: 'var(--dg-bg)',
+        softbg: 'var(--dg-bg-soft)',
+        surface: 'var(--dg-surface)',
+        surface2: 'var(--dg-surface-2)',
+        surface3: 'var(--dg-surface-3)',
+        line: 'var(--dg-line)',
+        linestrong: 'var(--dg-line-strong)',
+        ink: 'var(--dg-ink)',
+        inksoft: 'var(--dg-ink-soft)',
+        inkmute: 'var(--dg-ink-mute)',
+        brand: 'var(--dg-brand)',
+        brandsoft: 'var(--dg-brand-soft)',
+        leaf: 'var(--dg-green)',
+        leafsoft: 'var(--dg-green-soft)',
+        cocoa: 'var(--dg-brown)'
+      },
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/home2.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body data-page="home2">
+<a class="dg-skip" href="#main">Skip to main content</a>
+<div id="dg-nav-root">
+  <noscript>
+    <div class="dg-noscript">Enable JavaScript to browse the full menu. You can also call us on +91 98765 43210.</div>
+    <div style="padding:1rem">
+      <a href="index.html">Home</a> &middot;
+      <a href="menu.html">Menu</a> &middot;
+      <a href="plans.html">Plans</a> &middot;
+      <a href="delivery-area.html">Delivery Area</a> &middot;
+      <a href="login.html">Login</a> &middot;
+      <a href="signup.html">Sign up</a>
+    </div>
+  </noscript>
+</div>
+
+<main id="main" class="dg-main">
+
+  <!-- ================= HERO (centred, no images) ================= -->
+  <section class="dg2-hero">
+    <span class="dg-blob dg-blob-orange" style="width:26rem;height:26rem;top:-9rem;left:-7rem"></span>
+    <span class="dg-blob dg-blob-green" style="width:20rem;height:20rem;bottom:-8rem;right:-6rem"></span>
+
+    <!-- Ribbon runs along the top edge of the hero, inside the rounded section -->
+    <div class="dg2-ticker dg2-ticker-top" aria-hidden="true">
+      <div class="dg2-ticker-track">
+        <span class="dg2-ticker-item"><i data-lucide="wheat"></i>No maida</span>
+        <span class="dg2-ticker-item"><i data-lucide="droplets"></i>Ghee, not vanillin</span>
+        <span class="dg2-ticker-item"><i data-lucide="leaf"></i>No MSG</span>
+        <span class="dg2-ticker-item"><i data-lucide="clock"></i>Cooked 9 PM nightly</span>
+        <span class="dg2-ticker-item"><i data-lucide="thermometer"></i>Delivered hot</span>
+        <span class="dg2-ticker-item"><i data-lucide="hand-platter"></i>Two meals a day</span>
+        <span class="dg2-ticker-item"><i data-lucide="wheat"></i>No maida</span>
+        <span class="dg2-ticker-item"><i data-lucide="droplets"></i>Ghee, not vanillin</span>
+        <span class="dg2-ticker-item"><i data-lucide="leaf"></i>No MSG</span>
+        <span class="dg2-ticker-item"><i data-lucide="clock"></i>Cooked 9 PM nightly</span>
+        <span class="dg2-ticker-item"><i data-lucide="thermometer"></i>Delivered hot</span>
+        <span class="dg2-ticker-item"><i data-lucide="hand-platter"></i>Two meals a day</span>
+      </div>
+    </div>
+
+    <div class="dg-shell dg2-hero-inner">
+      <span class="dg-badge dg-badge-orange" data-dg-reveal>
+        <i data-lucide="flame"></i>Cooked the same evening it is delivered
+      </span>
+
+      <h1 class="dg-display mt-4" style="font-size:clamp(2.1rem,7.6vw,3.7rem)" data-dg-reveal data-dg-delay="1">
+        Your tiffin carrier<br>comes <span style="color:var(--dg-brand)">straight from the kitchen</span>
+      </h1>
+
+      <p class="dg-lede mt-4" style="font-size:1.04rem" data-dg-reveal data-dg-delay="2">
+        One box, two meals, three courses. We portion, seal and run it across five
+        zones in the city so the food reaches you the way it left the stove.
+      </p>
+
+      <div class="dg2-windows" data-dg-reveal data-dg-delay="3">
+        <span class="dg2-window"><i data-lucide="clock"></i>Lunch <b>12:30 &ndash; 1:30 PM</b></span>
+        <span class="dg2-window"><i data-lucide="clock"></i>Dinner <b>7:30 &ndash; 8:30 PM</b></span>
+        <span class="dg2-window"><i data-lucide="truck"></i>Free in <b>Zone 1</b></span>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mt-6" style="justify-content:center" data-dg-reveal data-dg-delay="4">
+        <a class="dg-btn dg-btn-primary dg-btn-lg" href="plans.html">
+          <i data-lucide="package-check"></i>Build my tiffin
+        </a>
+        <a class="dg-btn dg-btn-outline dg-btn-lg" href="menu.html">
+          <i data-lucide="book-open"></i>Read the menu
+        </a>
+      </div>
+
+      <p class="text-xs mt-6" style="color:var(--dg-ink-mute)" data-dg-reveal data-dg-delay="5">
+        Pause or skip a day any time &middot; No joining fee &middot; Cancel from your dashboard
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= COUNTER RAIL ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-5" data-dg-reveal>
+        <div>
+          <span class="dg-eyebrow">On the counter</span>
+          <h2 class="dg-display mt-2" style="font-size:clamp(1.5rem,4.4vw,2.2rem)">What is cooking right now</h2>
+        </div>
+        <a class="dg-link" href="menu.html">Browse the full menu <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="dg-shell">
+      <div class="dg2-rail dg2-rail--4" id="dg2-rail">
+        <p class="dg-lede">Loading the board&hellip;</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BENTO ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div style="max-width:38rem" data-dg-reveal>
+        <span class="dg-eyebrow">Pick a craving</span>
+        <h2 class="dg-display mt-2" style="font-size:clamp(1.5rem,4.4vw,2.2rem)">Not just thali, the whole counter</h2>
+        <p class="dg-lede mt-3">
+          Snacks between classes, something sweet at 4 PM, or a full plate at dinner &mdash;
+          it all travels in the same box.
+        </p>
+      </div>
+
+      <div class="dg2-bento mt-6" id="dg2-bento" data-dg-reveal>
+        <p class="dg-lede">Loading&hellip;</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NUMBERS ================= -->
+  <section class="dg2-band">
+    <div class="dg-shell" style="padding-block:2.5rem">
+      <div class="dg2-band-grid">
+        <div data-dg-reveal>
+          <div class="dg2-band-num">2019</div>
+          <div class="dg2-band-label">Cooking since the first tiffin</div>
+        </div>
+        <div data-dg-reveal data-dg-delay="1">
+          <div class="dg2-band-num">5</div>
+          <div class="dg2-band-label">Delivery zones across the city</div>
+        </div>
+        <div data-dg-reveal data-dg-delay="2">
+          <div class="dg2-band-num">25 min</div>
+          <div class="dg2-band-label">Fastest door-to-door time</div>
+        </div>
+        <div data-dg-reveal data-dg-delay="3">
+          <div class="dg2-band-num">2</div>
+          <div class="dg2-band-label">Meals packed in every box</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ZIG-ZAG ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+
+      <div class="dg2-zig" data-dg-reveal>
+        <div class="dg2-zig-frame">
+          <div class="dg2-zig-media">
+            <img src="assets/images/kitchen.jpg" alt="The DabbaGo kitchen, where the masala is ground fresh" loading="lazy" width="736" height="736">
+          </div>
+        </div>
+        <div>
+          <span class="dg-eyebrow">The kitchen</span>
+          <h2 class="dg-display mt-2" style="font-size:clamp(1.4rem,4vw,2rem)">Four cooks, one masala, no shortcuts</h2>
+          <p class="dg-lede mt-3">
+            Ghee, whole spices and a slow tempering &mdash; the same base your grandmother
+            would recognise. Nothing is reconstituted and nothing waits in a freezer.
+          </p>
+          <ul class="dg2-zig-list">
+            <li><i data-lucide="check-circle-2"></i><span>Ground spices roasted and ground in-house each week</span></li>
+            <li><i data-lucide="check-circle-2"></i><span>Sesame oil and desi ghee, never vegetable oil</span></li>
+            <li><i data-lucide="check-circle-2"></i><span>No artificial colour, flavour or MSG</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dg2-zig dg2-zig-flip" data-dg-reveal>
+        <div class="dg2-zig-frame">
+          <div class="dg2-zig-media">
+            <img src="assets/images/food-package.jpg" alt="The food package: steel-grade boxes with a separate curry pot and a sealed roti sleeve" loading="lazy" width="500" height="500">
+          </div>
+        </div>
+        <div>
+          <span class="dg-eyebrow">The box</span>
+          <h2 class="dg-display mt-2" style="font-size:clamp(1.4rem,4vw,2rem)">Packed so it survives the ride</h2>
+          <p class="dg-lede mt-3">
+            Steel-grade boxes, a separate curry pot and a sealed roti sleeve. The dal
+            arrives as dal, not as a stain at the bottom of the bag.
+          </p>
+          <ul class="dg2-zig-list">
+            <li><i data-lucide="check-circle-2"></i><span>Every curry sealed in its own leak-proof pot</span></li>
+            <li><i data-lucide="check-circle-2"></i><span>Roti wrapped separately so it never goes soggy</span></li>
+            <li><i data-lucide="check-circle-2"></i><span>Boxes washed and returned with the next drop</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dg2-zig" data-dg-reveal>
+        <div class="dg2-zig-frame">
+          <div class="dg2-zig-media">
+            <img src="assets/images/bike-delivery.jpg" alt="Rider carrying a tiffin bag across the city" loading="lazy" width="800" height="640">
+          </div>
+        </div>
+        <div>
+          <span class="dg-eyebrow">The ride</span>
+          <h2 class="dg-display mt-2" style="font-size:clamp(1.4rem,4vw,2rem)">Two windows, one rider, five zones</h2>
+          <p class="dg-lede mt-3">
+            Lunch goes out between 12:30 and 1:30, dinner between 7:30 and 8:30.
+            Route it once and we keep hitting the same doors.
+          </p>
+          <ul class="dg2-zig-list">
+            <li><i data-lucide="check-circle-2"></i><span>Fixed daily windows, so you can plan around it</span></li>
+            <li><i data-lucide="check-circle-2"></i><span>Live tracking from the kitchen to your floor</span></li>
+            <li><i data-lucide="check-circle-2"></i><span>Pause or skip a day without a conversation</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div style="max-width:34rem" data-dg-reveal>
+        <span class="dg-eyebrow">How it works</span>
+        <h2 class="dg-display mt-2" style="font-size:clamp(1.5rem,4.4vw,2.2rem)">Four steps, once, then every day</h2>
+      </div>
+
+      <ol class="dg2-timeline mt-7">
+        <li class="dg2-tl-item" data-dg-reveal>
+          <span class="dg2-tl-num">1</span>
+          <div class="dg2-tl-body">
+            <h3>Pick your meals</h3>
+            <p>Choose a plan or build your own thali, then set how many meals a day you want.</p>
+          </div>
+        </li>
+        <li class="dg2-tl-item" data-dg-reveal data-dg-delay="1">
+          <span class="dg2-tl-num">2</span>
+          <div class="dg2-tl-body">
+            <h3>Confirm your address</h3>
+            <p>We check your pincode against our five zones and confirm the delivery charge.</p>
+          </div>
+        </li>
+        <li class="dg2-tl-item" data-dg-reveal data-dg-delay="2">
+          <span class="dg2-tl-num">3</span>
+          <div class="dg2-tl-body">
+            <h3>We cook in the evening</h3>
+            <p>Everything is cooked fresh from 9 PM and packed into your box the same night.</p>
+          </div>
+        </li>
+        <li class="dg2-tl-item" data-dg-reveal data-dg-delay="3">
+          <span class="dg2-tl-num">4</span>
+          <div class="dg2-tl-body">
+            <h3>It reaches your door</h3>
+            <p>Sealed, tagged and handed over inside your delivery window. Every single day.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="mt-6" data-dg-reveal>
+        <a class="dg-btn dg-btn-primary" href="signup.html"><i data-lucide="arrow-right"></i>Start my tiffin</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= QUOTES ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div style="max-width:34rem" data-dg-reveal>
+        <span class="dg-eyebrow">From the floor</span>
+        <h2 class="dg-display mt-2" style="font-size:clamp(1.5rem,4.4vw,2.2rem)">Said back to us</h2>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2 mt-6">
+        <figure class="dg2-quote" data-dg-reveal>
+          <div class="dg2-quote-mark">&ldquo;</div>
+          <blockquote>
+            I stay in a PG with a shared kitchen that is mostly a microwave. Two months in,
+            I have eaten dal every single day and not once been bored by it.
+          </blockquote>
+          <figcaption class="dg2-quote-who">
+            <span class="dg2-quote-initial" aria-hidden="true">S</span>
+            <span class="dg2-quote-meta"><b>Second-year student</b><span>Andheri West</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="dg2-quote" data-dg-reveal data-dg-delay="1">
+          <div class="dg2-quote-mark">&ldquo;</div>
+          <blockquote>
+            The part that sold me was pausing. My internship started at midnight and I could
+            switch off dinners for two weeks without emailing anybody to ask.
+          </blockquote>
+          <figcaption class="dg2-quote-who">
+            <span class="dg2-quote-initial" aria-hidden="true">V</span>
+            <span class="dg2-quote-meta"><b>Working professional</b><span>Bandra</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+      <div class="dg2-cta" data-dg-reveal>
+        <img src="assets/images/greeting-thali.jpg" alt="" aria-hidden="true" loading="lazy">
+        <div class="dg2-cta-inner">
+          <span class="dg-badge dg-badge-orange"><i data-lucide="sparkles"></i>First box is on us</span>
+          <h2 class="dg-display mt-4" style="font-size:clamp(1.6rem,4.8vw,2.4rem)">
+            Dinner tonight, packed and on its way
+          </h2>
+          <p class="dg-lede mt-3">
+            Set it up in two minutes, pause whenever, and change your meals as often as you like.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-6">
+            <a class="dg-btn dg-btn-primary dg-btn-lg" href="signup.html">
+              <i data-lucide="rocket"></i>Get started
+            </a>
+            <a class="dg-btn dg-btn-outline dg-btn-lg" href="plans.html">
+              <i data-lucide="wallet"></i>Compare plans
+            </a>
+          </div>
+          <p class="text-xs mt-4" style="color:rgba(255,255,255,0.7)">
+            Free delivery in Zone 1 &middot; Pause any time &middot; No joining fee
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="dg-footer-root"></div>
+<div id="dg-modal-root"></div>
+
+<script defer src="js/main.js"></script>
+<script defer src="js/nav.js"></script>
+<script defer src="js/footer.js"></script>
+<script defer src="js/menu.js"></script>
+<script defer src="js/plans.js"></script>
+<script defer src="js/delivery.js"></script>
+<script defer src="js/home2.js"></script>
+</body>
+</html>

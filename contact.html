@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fffbf4">
+<title>Contact Us â€” DabbaGo</title>
+<meta name="description" content="Talk to the DabbaGo kitchen. Call +91 98765 43210, WhatsApp us, email hello@dabbago.in or send us a message. Support is open 8 AM to 9 PM, every day.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2661c'/%3E%3Cpath d='M8.5 12.5h15v6.5a7.5 7.5 0 0 1-15 0z' fill='none' stroke='white' stroke-width='2.1' stroke-linejoin='round'/%3E%3Cpath d='M7.5 12.5h17' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3Cpath d='M12 9.5h8' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>
+/* Apply the saved theme and text direction before first paint so there is no flash */
+(function () {
+  try {
+    var k = "dabbago_theme";
+    var s = localStorage.getItem(k);
+    var m = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var t = (s === "light" || s === "dark") ? s : (m ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", t === "dark");
+    document.documentElement.style.colorScheme = t;
+  } catch (e) {}
+  try {
+    var d = localStorage.getItem("dabbago_dir");
+    document.documentElement.setAttribute("dir", d === "rtl" ? "rtl" : "ltr");
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        cream: 'var(--dg-bg)', softbg: 'var(--dg-bg-soft)', surface: 'var(--dg-surface)',
+        surface2: 'var(--dg-surface-2)', surface3: 'var(--dg-surface-3)', line: 'var(--dg-line)',
+        linestrong: 'var(--dg-line-strong)', ink: 'var(--dg-ink)', inksoft: 'var(--dg-ink-soft)',
+        inkmute: 'var(--dg-ink-mute)', brand: 'var(--dg-brand)', brandsoft: 'var(--dg-brand-soft)',
+        leaf: 'var(--dg-green)', leafsoft: 'var(--dg-green-soft)', cocoa: 'var(--dg-brown)'
+      },
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<link rel="stylesheet" href="css/styles.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body data-page="contact">
+<a class="dg-skip" href="#main">Skip to main content</a>
+<div id="dg-nav-root"></div>
+
+<main id="main" class="dg-main">
+
+  <!-- ================= HERO ================= -->
+  <section class="co-hero">
+    <div class="dg-shell">
+      <div class="co-hero-inner" data-dg-reveal>
+        <span class="dg-badge dg-badge-green"><i data-lucide="headset"></i>Support open 8:00 AM &ndash; 9:00 PM, every day</span>
+        <h1>Talk to the DabbaGo kitchen</h1>
+        <p class="dg-lede">
+          Questions about a plan, a delivery that ran late, or whether we reach your society? A real
+          person answers &mdash; usually within an hour during support hours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT METHODS + FORM ================= -->
+  <section class="dg-section" style="padding-block:2.5rem">
+    <div class="dg-shell">
+      <div class="grid gap-5 lg:grid-cols-5 lg:items-start">
+
+        <!-- methods -->
+        <div class="lg:col-span-2 min-w-0 flex flex-col gap-4" data-dg-reveal>
+
+          <div class="dg-card dg-card-pad">
+            <h2 class="text-lg flex items-center gap-2"><i data-lucide="phone" class="dg-ico-sm"></i>Call us</h2>
+            <p class="text-sm dg-lede mt-1.5">
+              The quickest way to sort out a delivery problem while it is still happening.
+            </p>
+            <a class="dg-btn dg-btn-primary dg-btn-block mt-3" href="tel:+919876543210">
+              <i data-lucide="phone"></i>+91 98765 43210
+            </a>
+            <a class="dg-btn dg-btn-outline dg-btn-block mt-2" href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+              <i data-lucide="message-circle"></i>WhatsApp the kitchen
+            </a>
+          </div>
+
+          <div class="dg-card dg-card-pad">
+            <h2 class="text-lg flex items-center gap-2"><i data-lucide="map-pin" class="dg-ico-sm"></i>Find our kitchen</h2>
+            <div class="dg-media dg-contact-map mt-3">
+              <iframe
+                src="https://www.google.com/maps?q=DabbaGo%20Kitchen%2C%20Sneh%20Nagar%2C%20Mumbai%20400004&output=embed"
+                title="Map showing DabbaGo Kitchen in Sneh Nagar, Mumbai"
+                width="800" height="450" style="display:block;width:100%;height:100%;border:0"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- form -->
+        <div class="lg:col-span-3 min-w-0" data-dg-reveal data-dg-delay="1">
+          <div class="dg-card dg-card-pad">
+
+            <p class="dg-eyebrow"><i data-lucide="send"></i>Send a message</p>
+            <h2 class="text-2xl mt-1.5">Tell us what you need</h2>
+            <p class="dg-lede text-sm mt-1.5">
+              We answer in the order messages arrive, and we never share your number with anyone.
+            </p>
+
+            <form id="dg-contact-form" class="flex flex-col gap-3.5 mt-5" novalidate>
+
+              <div class="grid gap-3.5 sm:grid-cols-2">
+                <div class="dg-field">
+                  <label class="dg-label" for="dg-ct-name">Your name <span class="req">*</span></label>
+                  <div class="dg-input-wrap">
+                    <i data-lucide="user-round"></i>
+                    <input class="dg-input" type="text" id="dg-ct-name" name="name"
+                           placeholder="Aarav Sharma" autocomplete="name" required>
+                  </div>
+                  <p class="dg-error"><i data-lucide="circle-alert"></i><span></span></p>
+                </div>
+
+                <div class="dg-field">
+                  <label class="dg-label" for="dg-ct-mobile">Mobile number <span class="req">*</span></label>
+                  <div class="dg-input-wrap">
+                    <i data-lucide="phone"></i>
+                    <input class="dg-input" type="tel" id="dg-ct-mobile" name="mobile" inputmode="numeric"
+                           maxlength="10" placeholder="98765 43210" autocomplete="tel-national" required>
+                  </div>
+                  <p class="dg-error"><i data-lucide="circle-alert"></i><span></span></p>
+                </div>
+              </div>
+
+              <div class="grid gap-3.5 sm:grid-cols-2">
+                <div class="dg-field">
+                  <label class="dg-label" for="dg-ct-email">Email address <span class="req">*</span></label>
+                  <div class="dg-input-wrap">
+                    <i data-lucide="mail"></i>
+                    <input class="dg-input" type="email" id="dg-ct-email" name="email"
+                           placeholder="you@college.edu" autocomplete="email" required>
+                  </div>
+                  <p class="dg-error"><i data-lucide="circle-alert"></i><span></span></p>
+                </div>
+
+                <div class="dg-field">
+                  <label class="dg-label" for="dg-ct-topic">What is this about?</label>
+                  <select class="dg-select" id="dg-ct-topic" name="topic">
+                    <option value="Delivery in my area">Do you deliver to my area?</option>
+                    <option value="Plans and pricing">Plans and pricing</option>
+                    <option value="Existing delivery">An existing delivery</option>
+                    <option value="Pause or reschedule">Pause or reschedule my meals</option>
+                    <option value="Feedback or complaint">Feedback or a complaint</option>
+                    <option value="Corporate or bulk order">Corporate or bulk order</option>
+                    <option value="Something else" selected>Something else</option>
+                  </select>
+                  <p class="dg-help">Pick the closest match so we can route it to the right desk.</p>
+                </div>
+              </div>
+
+              <div class="dg-field">
+                <label class="dg-label" for="dg-ct-address">Your area or delivery address</label>
+                <div class="dg-input-wrap" style="align-items:flex-start">
+                  <i data-lucide="house"></i>
+                  <textarea class="dg-textarea" id="dg-ct-address" name="address" rows="2"
+                            placeholder="Hostel / flat, street, landmark, pincode" autocomplete="street-address"></textarea>
+                </div>
+                <p class="dg-error"><i data-lucide="circle-alert"></i><span></span></p>
+                <p class="dg-help">Only needed if your question is about delivery in your area.</p>
+              </div>
+
+              <div class="dg-field">
+                <label class="dg-label" for="dg-ct-message">Your message <span class="req">*</span></label>
+                <div class="dg-input-wrap" style="align-items:flex-start">
+                  <i data-lucide="message-square"></i>
+                  <textarea class="dg-textarea" id="dg-ct-message" name="message" rows="4"
+                            placeholder="Tell us what happened, or what you would like to know." required></textarea>
+                </div>
+                <p class="dg-error"><i data-lucide="circle-alert"></i><span></span></p>
+              </div>
+
+              <button type="submit" class="dg-btn dg-btn-primary dg-btn-block dg-btn-lg">
+                <i data-lucide="send"></i><span>Send message</span>
+              </button>
+
+              <p class="text-xs text-center" style="color:var(--dg-ink-mute)">
+                By sending this you agree we may contact you about your enquiry. We do not add you
+                to any marketing list.
+              </p>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+      <div class="dg-card dg-card-pad text-center" style="max-width:44rem;margin-inline:auto" data-dg-reveal>
+        <span class="dg-icon-tile dg-icon-tile-green" style="margin-inline:auto"><i data-lucide="soup"></i></span>
+        <h2 class="text-2xl sm:text-3xl mt-4">Rather just start eating?</h2>
+        <p class="dg-lede mt-2">
+          Creating an account is free and takes under a minute. Your first tiffin arrives within
+          24 hours of signing up.
+        </p>
+        <div class="flex flex-wrap gap-2.5 justify-center mt-5">
+          <a class="dg-btn dg-btn-primary dg-btn-lg" href="signup.html">
+            <i data-lucide="user-round-plus"></i>Create your account
+          </a>
+          <a class="dg-btn dg-btn-outline dg-btn-lg" href="about.html">
+            <i data-lucide="book-open"></i>Read our story
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="dg-footer-root"></div>
+<div id="dg-modal-root"></div>
+
+<script defer src="js/main.js"></script>
+<script defer src="js/nav.js"></script>
+<script defer src="js/footer.js"></script>
+<script defer src="js/contact.js"></script>
+</body>
+</html>

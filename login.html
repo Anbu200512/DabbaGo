@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fffbf4">
+<title>Sign in — DabbaGo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/auth-page.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body data-page="login" class="dg-auth-standalone">
+<div class="auth-quick-controls" aria-label="Display options">
+  <button type="button" class="dg-iconbtn" data-dg-dir-toggle aria-pressed="false" aria-label="Switch to right-to-left" title="Switch to RTL"><i data-lucide="arrow-right-left" class="dg-icon-ltr"></i><i data-lucide="arrow-left-right" class="dg-icon-rtl"></i></button>
+  <button type="button" class="dg-iconbtn" data-dg-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode"><i data-lucide="sun" class="dg-icon-sun"></i><i data-lucide="moon" class="dg-icon-moon"></i></button>
+</div>
+<main class="auth-stage" id="main">
+  <section class="auth-card" aria-label="DabbaGo account access">
+    <div class="auth-visual">
+      <img src="assets/images/veg-thali.jpg" alt="A freshly prepared homestyle thali" width="800" height="600">
+      <a class="auth-brand" href="index.html" aria-label="DabbaGo home"><span class="dg-logo-mark"><i data-lucide="cooking-pot"></i></span><span>Dabba<em>Go</em></span></a>
+      <div class="auth-visual-copy">
+        <span class="dg-badge dg-badge-solid"><i data-lucide="sparkles"></i>Homely food, every day</span>
+        <h1>A little taste<br>of home.</h1>
+        <p>Freshly cooked meals, delivered with care to wherever life takes you.</p>
+        <div class="auth-rating"><span aria-hidden="true">★★★★★</span> Loved by 12,000+ happy eaters</div>
+      </div>
+      <span class="auth-image-shade" aria-hidden="true"></span>
+    </div>
+
+    <div class="auth-panel">
+      <section>
+        <div class="auth-heading"><p class="dg-eyebrow">Welcome back</p><h2>Sign in to your account</h2><p>Good food is just a few clicks away.</p></div>
+        <div id="dg-login-signed-in" class="auth-notice is-hidden">Already signed in as <strong id="dg-login-name"></strong>.</div>
+        <form id="dg-login-form" class="auth-form" novalidate>
+          <div class="dg-field"><label class="dg-label" for="login-email">Email address</label><div class="dg-input-wrap"><i data-lucide="mail"></i><input class="dg-input" id="login-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div><div class="dg-error"></div></div>
+          <div class="dg-field"><label class="dg-label" for="login-password">Password</label><div class="dg-input-wrap"><i data-lucide="lock-keyhole"></i><input class="dg-input" id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button class="dg-trailing" type="button" data-dg-toggle-pass="login-password" aria-label="Show password"><i data-lucide="eye"></i></button></div><div class="dg-error"></div></div>
+          <div class="auth-options"><label class="dg-check"><input type="checkbox" name="remember"><span>Remember me</span></label><a href="#" id="dg-forgot">Forgot password?</a></div>
+          <button class="dg-btn dg-btn-primary dg-btn-block auth-submit" type="submit"><span>Sign in</span><i data-lucide="arrow-right"></i></button>
+        </form>
+        <div class="auth-divider"><span>or continue with</span></div>
+        <div class="auth-socials" aria-label="Social sign-in options">
+          <button type="button" class="auth-social" data-social-login="Google" aria-label="Continue with Google" title="Google"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.6c3.9-3.6 6.1-8.8 6.1-15Z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.8l-6.6-5.1c-1.8 1.2-4.1 2-6.9 2-5.3 0-9.8-3.6-11.4-8.4H5.8v5.3A20 20 0 0 0 24 44Z"/><path fill="#FBBC05" d="M12.6 27.7a12 12 0 0 1 0-7.4V15H5.8a20 20 0 0 0 0 18l6.8-5.3Z"/><path fill="#EA4335" d="M24 11.9c3 0 5.7 1 7.8 3.1l5.8-5.8C34.1 5.9 29.5 4 24 4A20 20 0 0 0 5.8 15l6.8 5.3c1.6-4.8 6.1-8.4 11.4-8.4Z"/></svg></button>
+          <button type="button" class="auth-social" data-social-login="Facebook" aria-label="Continue with Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.875 11.85v-8.38H7.08V12h3.045V9.36c0-3.005 1.79-4.665 4.53-4.665 1.312 0 2.685.234 2.685.234v2.953h-1.512c-1.49 0-1.953.925-1.953 1.874V12h3.324l-.531 3.47h-2.793v8.38A12.002 12.002 0 0 0 24 12Z"/></svg></button>
+          <button type="button" class="auth-social" data-social-login="Apple" aria-label="Continue with Apple" title="Apple"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.21c.02 2.13 1.87 2.84 1.89 2.85-.02.05-.3 1.02-.98 2.02-.59.87-1.21 1.74-2.18 1.76-.95.02-1.26-.57-2.35-.57-1.08 0-1.43.55-2.33.59-.94.04-1.66-.94-2.26-1.8-1.23-1.78-2.17-5.04-.91-7.23.63-1.09 1.76-1.78 2.99-1.8.93-.02 1.8.63 2.36.63.55 0 1.59-.78 2.68-.67.46.02 1.76.19 2.59 1.42-.07.04-1.55.91-1.5 2.8ZM14.61 6.2c.49-.59.82-1.4.73-2.2-.71.03-1.57.47-2.08 1.06-.46.53-.86 1.36-.75 2.15.79.06 1.61-.4 2.1-1.01Z"/></svg></button>
+        </div>
+        <p class="auth-switch">New to DabbaGo? <a href="signup.html">Create an account</a></p>
+      </section>
+
+    </div>
+  </section>
+</main>
+<div id="dg-modal-root"></div>
+<script defer src="js/main.js"></script>
+<script defer src="js/auth.js"></script>
+<script defer src="js/delivery.js"></script>
+<script defer src="js/plans.js"></script>
+<script defer src="js/menu.js"></script>
+<script defer src="js/auth-page.js"></script>
+</body>
+</html>

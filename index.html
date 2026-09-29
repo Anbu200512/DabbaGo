@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fffbf4">
+<title>DabbaGo — Homely Tiffin &amp; Dabba Delivery for Students</title>
+<meta name="description" content="DabbaGo cooks fresh homely tiffin meals every night and delivers them to hostels, PGs and apartments. Student-friendly plans from &#8377;1,249 a month. Homely Food. Delivered Daily.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2661c'/%3E%3Cpath d='M8.5 12.5h15v6.5a7.5 7.5 0 0 1-15 0z' fill='none' stroke='white' stroke-width='2.1' stroke-linejoin='round'/%3E%3Cpath d='M7.5 12.5h17' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3Cpath d='M12 9.5h8' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>
+/* Apply the saved theme and text direction before first paint so there is no flash */
+(function () {
+  try {
+    var k = "dabbago_theme";
+    var s = localStorage.getItem(k);
+    var m = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var t = (s === "light" || s === "dark") ? s : (m ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", t === "dark");
+    document.documentElement.style.colorScheme = t;
+  } catch (e) {}
+  try {
+    var d = localStorage.getItem("dabbago_dir");
+    document.documentElement.setAttribute("dir", d === "rtl" ? "rtl" : "ltr");
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        cream: 'var(--dg-bg)',
+        softbg: 'var(--dg-bg-soft)',
+        surface: 'var(--dg-surface)',
+        surface2: 'var(--dg-surface-2)',
+        surface3: 'var(--dg-surface-3)',
+        line: 'var(--dg-line)',
+        linestrong: 'var(--dg-line-strong)',
+        ink: 'var(--dg-ink)',
+        inksoft: 'var(--dg-ink-soft)',
+        inkmute: 'var(--dg-ink-mute)',
+        brand: 'var(--dg-brand)',
+        brandsoft: 'var(--dg-brand-soft)',
+        leaf: 'var(--dg-green)',
+        leafsoft: 'var(--dg-green-soft)',
+        cocoa: 'var(--dg-brown)'
+      },
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<link rel="stylesheet" href="css/styles.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body data-page="home">
+<a class="dg-skip" href="#main">Skip to main content</a>
+<div id="dg-nav-root">
+  <noscript>
+    <div class="dg-noscript">Enable JavaScript to browse the full menu. You can also call us on +91 98765 43210.</div>
+    <div style="padding:1rem">
+      <a href="index.html">Home</a> &middot;
+      <a href="menu.html">Menu</a> &middot;
+      <a href="plans.html">Plans</a> &middot;
+      <a href="delivery-area.html">Delivery Area</a> &middot;
+      <a href="login.html">Login</a> &middot;
+      <a href="signup.html">Sign up</a>
+    </div>
+  </noscript>
+</div>
+
+<main id="main" class="dg-main">
+
+  <!-- ================= HERO ================= -->
+  <section class="relative overflow-hidden" style="background:var(--dg-bg-soft)">
+    <span class="dg-blob dg-blob-orange" style="width:22rem;height:22rem;top:-6rem;right:-6rem"></span>
+    <span class="dg-blob dg-blob-green" style="width:18rem;height:18rem;bottom:-7rem;left:-5rem"></span>
+
+    <div class="dg-shell relative" style="z-index:1">
+      <div class="grid gap-8 lg:grid-cols-2 lg:items-center" style="padding-block:2.5rem 3rem">
+
+        <div class="min-w-0" data-dg-reveal>
+          <span class="dg-badge dg-badge-orange"><i data-lucide="sparkles"></i>Fresh tiffin cooked every night since 2019</span>
+
+          <h1 class="dg-display mt-4" style="font-size:clamp(2rem,7.2vw,3.4rem)">
+            Homely food,<br>delivered to your door <span style="color:var(--dg-brand)">every day</span>
+          </h1>
+
+          <p class="dg-lede mt-4" style="font-size:1.02rem;max-width:34rem">
+            Ghee, spices and love &mdash; not maida or MSG. Choose your meals once and we bring
+            hot, home-cooked tiffins to your hostel, PG or flat at the time you want them.
+          </p>
+
+          <div class="flex flex-wrap gap-3 mt-6">
+            <a class="dg-btn dg-btn-primary dg-btn-lg" href="menu.html">
+              <i data-lucide="utensils-crossed"></i>View Menu
+            </a>
+            <a class="dg-btn dg-btn-outline dg-btn-lg" href="plans.html">
+              <i data-lucide="wallet"></i>View Plans
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-x-5 gap-y-2.5 mt-6 text-sm" style="color:var(--dg-ink-soft)">
+            <span class="flex items-center gap-1.5"><i data-lucide="star" class="dg-tick" style="color:var(--dg-brand)"></i>
+              <strong style="color:var(--dg-ink)">4.8/5</strong> from 3,900+ students</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="leaf" class="dg-tick" style="color:var(--dg-leaf)"></i>
+              Veg &amp; non-veg daily</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="dg-tick"></i>
+              FSSAI licensed kitchen</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
+            <div class="min-w-0"><p class="dg-stats-num">12k+</p><p class="dg-stat-label">Active subscribers</p></div>
+            <div class="min-w-0"><p class="dg-stats-num">7</p><p class="dg-stat-label">Day meal rotation</p></div>
+            <div class="min-w-0"><p class="dg-stats-num">25<small style="font-size:.6em"> min</small></p><p class="dg-stat-label">Fastest delivery</p></div>
+            <div class="min-w-0"><p class="dg-stats-num">5</p><p class="dg-stat-label">Cities covered</p></div>
+          </div>
+        </div>
+
+        <!-- hero image -->
+        <div class="min-w-0" data-dg-reveal data-dg-delay="1">
+          <div class="dg-media dg-media-4x3" style="border-radius:1.5rem;box-shadow:var(--dg-shadow-lg);border:1px solid var(--dg-line)">
+            <img src="assets/images/veg-thali.jpg" alt="A freshly served vegetarian thali with dal, rice, roti and vegetables" width="800" height="600" fetchpriority="high">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY CHOOSE ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="heart-handshake"></i>Why DabbaGo</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">Built for students and working people on a budget</h2>
+        <p class="dg-lede">Eight reasons more than twelve thousand people eat with us every single day.</p>
+      </div>
+
+      <div class="dg-grid-auto mt-8" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))">
+        <article class="dg-card dg-card-pad" data-dg-reveal>
+          <span class="dg-icon-tile"><i data-lucide="cooking-pot"></i></span>
+          <h3 class="text-base mt-3">Cooked fresh, never reheated</h3>
+          <p class="text-sm dg-lede mt-1.5">Every tiffin leaves our kitchen within 90 minutes of being cooked. No re-heating, no vending-machine dinners.</p>
+        </article>
+
+        <article class="dg-card dg-card-pad" data-dg-reveal data-dg-delay="1">
+          <span class="dg-icon-tile dg-icon-tile-green"><i data-lucide="leaf"></i></span>
+          <h3 class="text-base mt-3">Clean, homestyle cooking</h3>
+          <p class="text-sm dg-lede mt-1.5">No artificial colours, no MSG, no maida. Limited oil, whole spices and ghee the way your grandmother would make it.</p>
+        </article>
+
+        <article class="dg-card dg-card-pad" data-dg-reveal data-dg-delay="2">
+          <span class="dg-icon-tile dg-icon-tile-brown"><i data-lucide="indian-rupee"></i></span>
+          <h3 class="text-base mt-3">Honest student pricing</h3>
+          <p class="text-sm dg-lede mt-1.5">From &#8377;1,249 a month. No joining fee, no hidden delivery surcharge, no auto-renewal without a reminder.</p>
+        </article>
+
+        <article class="dg-card dg-card-pad" data-dg-reveal data-dg-delay="3">
+          <span class="dg-icon-tile"><i data-lucide="clock"></i></span>
+          <h3 class="text-base mt-3">Delivered in a 60-minute window</h3>
+          <p class="text-sm dg-lede mt-1.5">We commit to a one-hour slot for every meal. If we are late, the next delivery is on us.</p>
+        </article>
+
+        <article class="dg-card dg-card-pad" data-dg-reveal data-dg-delay="4">
+          <span class="dg-icon-tile dg-icon-tile-green"><i data-lucide="calendar"></i></span>
+          <h3 class="text-base mt-3">Pause any time, no questions</h3>
+          <p class="text-sm dg-lede mt-1.5">Going home for a week? Pause from your dashboard in two taps. You are not charged for paused days.</p>
+        </article>
+
+        <article class="dg-card dg-card-pad" data-dg-reveal data-dg-delay="5">
+          <span class="dg-icon-tile dg-icon-tile-brown"><i data-lucide="package"></i></span>
+          <h3 class="text-base mt-3">Sealed, leak-proof boxes</h3>
+          <p class="text-sm dg-lede mt-1.5">Every tiffin is sealed with a tamper band and labelled with your name, day and meal.</p>
+        </article>
+
+        <article class="dg-card dg-card-pad" data-dg-reveal data-dg-delay="6">
+          <span class="dg-icon-tile"><i data-lucide="calendar-days"></i></span>
+          <h3 class="text-base mt-3">A new 7-day menu every week</h3>
+          <p class="text-sm dg-lede mt-1.5">The rotation changes every Monday, so lunch is never the same curry two days running. Preview next week&rsquo;s menu before it lands.</p>
+        </article>
+
+        <article class="dg-card dg-card-pad" data-dg-reveal data-dg-delay="6">
+          <span class="dg-icon-tile dg-icon-tile-green"><i data-lucide="headset"></i></span>
+          <h3 class="text-base mt-3">Real people on WhatsApp</h3>
+          <p class="text-sm dg-lede mt-1.5">A late tiffin is a message away, not a ticket number. Our support desk answers 8:00 AM to 9:00 PM, every single day.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TODAY'S MEAL ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3" data-dg-reveal>
+        <div class="dg-head">
+          <p class="dg-eyebrow"><i data-lucide="calendar-days"></i>Kitchen update</p>
+          <h2 class="text-2xl sm:text-3xl">Today's meal</h2>
+          <p class="dg-lede">What our kitchen is packing right now. Menus rotate every week so you never eat the same curry twice.</p>
+        </div>
+        <a class="dg-btn dg-btn-outline self-start sm:self-auto" href="menu.html">
+          Browse full menu<i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+
+      <div id="dg-home-today" class="grid gap-4 mt-7" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,16.5rem),1fr))">
+        <p class="dg-lede">Loading today's menu…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KITCHEN GALLERY ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="camera"></i>From our kitchen</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">A taste of what we cook</h2>
+        <p class="dg-lede">Real plates from this week's kitchen, photographed on the day they were cooked. Nothing is reheated and nothing is held over.</p>
+      </div>
+
+      <div id="dg-home-gallery" class="dg-gallery mt-8" data-dg-reveal>
+        <p class="dg-lede">Loading the gallery…</p>
+      </div>
+
+      <div class="text-center mt-7" data-dg-reveal>
+        <a class="dg-btn dg-btn-primary" href="menu.html?meal=Lunch">
+          See every dish and its nutrition<i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= POPULAR PLANS ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="wallet"></i>Subscription plans</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">Plans that fit a student budget</h2>
+        <p class="dg-lede">Pick the meals you want, the days you want them, and change your mind whenever you like.</p>
+      </div>
+
+      <div id="dg-home-plans" class="grid gap-4 mt-8 items-stretch" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))">
+        <p class="dg-lede">Loading plans.</p>
+      </div>
+
+      <div class="text-center mt-7" data-dg-reveal>
+        <a class="dg-btn dg-btn-outline" href="plans.html">
+          Compare all six plans<i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHERE WE DELIVER ================= -->
+  <section class="dg-section">
+    <div class="dg-shell">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="map-pin"></i>Where we deliver</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">Five zones, five cities, one kitchen team</h2>
+        <p class="dg-lede mt-3">
+          We deliver to hostels, PGs, service societies and campus hostels across Mumbai, Pune,
+          Kolkata and Bengaluru. Free delivery in Zone 1 and on every monthly plan.
+        </p>
+      </div>
+
+      <div id="dg-home-areas" class="dg-zonegrid mt-8">
+        <p class="dg-lede">Loading delivery zones…</p>
+      </div>
+
+      <div class="text-center mt-8" data-dg-reveal>
+        <a class="dg-btn dg-btn-primary" href="delivery-area.html">
+          <i data-lucide="search"></i>Check your area
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="message-circle"></i>Subscriber stories</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">What people tell us</h2>
+        <p class="dg-lede">Real feedback from hostels, PG rooms and service societies across our five zones.</p>
+      </div>
+
+      <div class="grid gap-4 mt-8" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))">
+
+        <figure class="dg-card dg-card-pad flex flex-col gap-3" data-dg-reveal>
+          <div class="flex items-center justify-between gap-2">
+            <span class="flex items-center gap-0.5" aria-label="Rated 5 out of 5" style="color:var(--dg-brand)">
+              <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            </span>
+            <span class="dg-badge dg-badge-green"><i data-lucide="badge-check"></i>Verified</span>
+          </div>
+          <blockquote class="text-sm" style="color:var(--dg-ink-soft);line-height:1.7">
+            &ldquo;The dal and chapati actually taste like the ones at home. I have skipped ordering
+            food outside completely since I subscribed.&rdquo;
+          </blockquote>
+          <figcaption class="flex items-center gap-2.5 mt-auto pt-2" style="border-top:1px solid var(--dg-line)">
+            <span class="dg-avatar is-brand" aria-hidden="true">AP<img class="dg-avatar-img" src="assets/images/avatars/aarav-patil.jpg" alt="" loading="lazy" width="42" height="42" onerror="this.onerror=null;this.src='assets/images/avatars/aarav-patil.svg'"></span>
+            <span class="min-w-0">
+              <span class="block text-sm font-bold dg-clamp-1">Aarav Patil</span>
+              <span class="block text-xs dg-clamp-1" style="color:var(--dg-ink-mute)">B.Tech &middot; Andheri West</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="dg-card dg-card-pad flex flex-col gap-3" data-dg-reveal data-dg-delay="1">
+          <div class="flex items-center justify-between gap-2">
+            <span class="flex items-center gap-0.5" aria-label="Rated 5 out of 5" style="color:var(--dg-brand)">
+              <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            </span>
+            <span class="dg-badge dg-badge-green"><i data-lucide="badge-check"></i>Verified</span>
+          </div>
+          <blockquote class="text-sm" style="color:var(--dg-ink-soft);line-height:1.7">
+            &ldquo;Pause is the feature I care about most. I go home for two weeks every summer and
+            they just stop the deliveries without any argument.&rdquo;
+          </blockquote>
+          <figcaption class="flex items-center gap-2.5 mt-auto pt-2" style="border-top:1px solid var(--dg-line)">
+            <span class="dg-avatar is-green" aria-hidden="true">SM<img class="dg-avatar-img" src="assets/images/avatars/sneha-menon.jpg" alt="" loading="lazy" width="42" height="42" onerror="this.onerror=null;this.src='assets/images/avatars/sneha-menon.svg'"></span>
+            <span class="min-w-0">
+              <span class="block text-sm font-bold dg-clamp-1">Sneha Menon</span>
+              <span class="block text-xs dg-clamp-1" style="color:var(--dg-ink-mute)">Working professional &middot; Kothrud</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="dg-card dg-card-pad flex flex-col gap-3" data-dg-reveal data-dg-delay="2">
+          <div class="flex items-center justify-between gap-2">
+            <span class="flex items-center gap-0.5" aria-label="Rated 4 out of 5" style="color:var(--dg-brand)">
+              <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star-off"></i>
+            </span>
+            <span class="dg-badge dg-badge-green"><i data-lucide="badge-check"></i>Verified</span>
+          </div>
+          <blockquote class="text-sm" style="color:var(--dg-ink-soft);line-height:1.7">
+            &ldquo;Weekends in Hinjewadi are the only time I eat a proper thali. Worth the delivery
+            charge, and they have never missed a day.&rdquo;
+          </blockquote>
+          <figcaption class="flex items-center gap-2.5 mt-auto pt-2" style="border-top:1px solid var(--dg-line)">
+            <span class="dg-avatar is-brown" aria-hidden="true">RK<img class="dg-avatar-img" src="assets/images/avatars/rohan-kulkarni.jpg" alt="" loading="lazy" width="42" height="42" onerror="this.onerror=null;this.src='assets/images/avatars/rohan-kulkarni.svg'"></span>
+            <span class="min-w-0">
+              <span class="block text-sm font-bold dg-clamp-1">Rohan Kulkarni</span>
+              <span class="block text-xs dg-clamp-1" style="color:var(--dg-ink-mute)">M.Sc &middot; Hinjewadi Phase 2</span>
+            </span>
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="dg-section">
+    <div class="dg-shell" style="max-width:46rem">
+      <div class="dg-head dg-head-center mx-auto text-center" data-dg-reveal>
+        <p class="dg-eyebrow"><i data-lucide="circle-help"></i>Questions</p>
+        <h2 class="text-2xl sm:text-3xl mt-2">Frequently asked questions</h2>
+        <p class="dg-lede">Still unsure? Call us on +91 98765 43210 between 8 AM and 9 PM.</p>
+      </div>
+
+      <div class="mt-8" data-dg-reveal>
+
+        <div class="dg-acc" data-dg-acc data-open="true" data-dg-single>
+          <button type="button" class="dg-acc-btn" data-dg-acc-btn aria-expanded="true">
+            <span>How is DabbaGo different from ordering on a food app?</span>
+            <span class="dg-acc-ico"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="dg-acc-panel"><div>
+            <p>Food apps sell you one dish at a time and charge delivery on every order. DabbaGo is a
+            subscription: you pay once for a month of home-style meals that arrive on a fixed schedule.
+            Your meals are cooked in one batch, so the cost per meal is much lower and the food arrives
+            at the same time every day.</p>
+          </div></div>
+        </div>
+
+        <div class="dg-acc" data-dg-acc data-open="false" data-dg-single>
+          <button type="button" class="dg-acc-btn" data-dg-acc-btn aria-expanded="false">
+            <span>Can I choose which meals I receive?</span>
+            <span class="dg-acc-ico"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="dg-acc-panel"><div>
+            <p>Yes. Pick lunch only, dinner only, both, or all three meals. You can change your meal
+            preference from the dashboard and it applies from your next delivery. On monthly plans you
+            also get one free dish swap every week.</p>
+          </div></div>
+        </div>
+
+        <div class="dg-acc" data-dg-acc data-open="false" data-dg-single>
+          <button type="button" class="dg-acc-btn" data-dg-acc-btn aria-expanded="false">
+            <span>What happens if I need to skip a few days?</span>
+            <span class="dg-acc-ico"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="dg-acc-panel"><div>
+            <p>Pause delivery from your dashboard for as many days as you need. You are not billed for
+            paused days, and your plan stays active so you can resume without paying again. Just make
+            sure you pause at least four hours before the delivery slot.</p>
+          </div></div>
+        </div>
+
+        <div class="dg-acc" data-dg-acc data-open="false" data-dg-single>
+          <button type="button" class="dg-acc-btn" data-dg-acc-btn aria-expanded="false">
+            <span>Do you deliver to my hostel or society?</span>
+            <span class="dg-acc-ico"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="dg-acc-panel"><div>
+            <p>Almost certainly. Use the area checker on our delivery page with your pincode. If you are
+            near a zone boundary, our rider will call the society or hostel gate and leave the tiffin
+            with the security desk, tagged with your name and room number.</p>
+          </div></div>
+        </div>
+
+        <div class="dg-acc" data-dg-acc data-open="false" data-dg-single>
+          <button type="button" class="dg-acc-btn" data-dg-acc-btn aria-expanded="false">
+            <span>Is the food vegetarian?</span>
+            <span class="dg-acc-ico"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="dg-acc-panel"><div>
+            <p>Our kitchen cooks both. Vegetarian and non-vegetarian dishes are cooked in separate
+            vessels and packed in separate boxes, and every card on the menu page is labelled clearly
+            with a green or red marker.</p>
+          </div></div>
+        </div>
+
+        <div class="dg-acc" data-dg-acc data-open="false" data-dg-single>
+          <button type="button" class="dg-acc-btn" data-dg-acc-btn aria-expanded="false">
+            <span>How do I cancel, and will I get a refund?</span>
+            <span class="dg-acc-ico"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="dg-acc-panel"><div>
+            <p>You can cancel any time from your dashboard. Weekly plans cancelled before the fourth
+            day are refunded in full to the original payment method; after that we credit the
+            undelivered meals. Monthly plans are pro-rated by meal.</p>
+          </div></div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="dg-section" style="background:var(--dg-brown);position:relative;overflow:hidden">
+    <span class="dg-blob dg-blob-orange" style="width:20rem;height:20rem;top:-6rem;right:-4rem"></span>
+    <div class="dg-shell relative" style="z-index:1">
+      <div class="dg-card dg-card-pad text-center" style="padding-block:2.5rem;max-width:44rem;margin-inline:auto">
+        <span class="dg-badge dg-badge-solid mx-auto" style="width:max-content">
+          <i data-lucide="sparkles"></i>Start this week
+        </span>
+        <h2 class="text-2xl sm:text-3xl mt-3">Your first tiffin is 24 hours away</h2>
+        <p class="dg-lede mt-2.5">
+          Join as a weekly subscriber for &#8377;899, try seven days of hot homely meals, and decide then
+          whether to go monthly. Cancel anytime, no questions asked.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center mt-6">
+          <a class="dg-btn dg-btn-primary dg-btn-lg" href="signup.html">
+            <i data-lucide="user-round"></i>Create my account
+          </a>
+          <a class="dg-btn dg-btn-outline dg-btn-lg" href="plans.html">
+            <i data-lucide="wallet"></i>Compare plans
+          </a>
+        </div>
+        <p class="text-xs mt-4" style="color:var(--dg-ink-mute)">
+          Free delivery in Zone 1 &middot; Pause any time &middot; No joining fee
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="dg-footer-root"></div>
+<div id="dg-modal-root"></div>
+
+<script defer src="js/main.js"></script>
+<script defer src="js/nav.js"></script>
+<script defer src="js/footer.js"></script>
+<script defer src="js/menu.js"></script>
+<script defer src="js/plans.js"></script>
+<script defer src="js/delivery.js"></script>
+</body>
+</html>

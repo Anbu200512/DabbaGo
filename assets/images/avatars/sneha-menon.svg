@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="Illustrated portrait">
+  <rect width="96" height="96" fill="#e7f4e6"/>
+  <path d="M22 48c0-19 12-30 26-30s26 11 26 30v20H22z" fill="#1f1712"/>
+  <path d="M11 96c0-19 16-30 37-30s37 11 37 30z" fill="#2f7a3d"/>
+  <path d="M41 56h14v15H41z" fill="#c98f63"/>
+  <ellipse cx="48" cy="42" rx="18" ry="21" fill="#dda57a"/>
+  <path d="M30 40c0-14 8-21 18-21s18 7 18 21c-3-8-8-11-18-11s-15 3-18 11z" fill="#1f1712"/>
+  <circle cx="42" cy="43" r="2" fill="#1f1712"/>
+  <circle cx="54" cy="43" r="2" fill="#1f1712"/>
+  <path d="M43 51c2.8 3 7.2 3 10 0" stroke="#1f1712" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>

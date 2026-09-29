@@ -1,0 +1,651 @@
+/* ==========================================================================
+   DabbaGo — home2.css
+   Layout-only styles for the second homepage variant (home2.html).
+
+   Every colour here is an existing --dg-* token from styles.css, so home2
+   inherits the exact same palette and dark mode as home1. Nothing in this
+   file changes the design system; it only adds layout shapes that home1
+   does not use. All rules are scoped with a dg2- prefix so they can never
+   collide with home1 components.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Centre-stage hero
+   home1 splits copy left / preview card right. home2 centres everything and
+   anchors it with a fanned photo strip that breaks out of the section box.
+   -------------------------------------------------------------------------- */
+.dg2-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--dg-bg-soft);
+  text-align: center;
+}
+
+.dg2-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding-block: 3.5rem;
+}
+
+/* Ribbon pinned to the top edge of the hero. It has to clear the shell's own
+   top padding, so the hero content starts below it rather than under it. */
+.dg2-ticker-top {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid var(--dg-line);
+}
+
+.dg2-ticker-top + .dg2-hero-inner {
+  padding-top: 2.75rem;
+}
+
+.dg2-hero h1 {
+  margin-inline: auto;
+  max-width: 22ch;
+}
+
+.dg2-hero .dg-lede {
+  margin-inline: auto;
+  max-width: 46ch;
+}
+
+/* Delivery windows, stated up front because "when does it arrive" is the
+   first thing a tiffin customer asks. */
+.dg2-windows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.dg2-window {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--dg-line-strong);
+  background: var(--dg-surface);
+  color: var(--dg-ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: var(--dg-shadow-sm);
+}
+
+.dg2-window svg { width: 0.95rem; height: 0.95rem; color: var(--dg-brand); }
+.dg2-window b { color: var(--dg-ink); }
+
+/* --------------------------------------------------------------------------
+   2. Scrolling ticker band
+   A moving ribbon of what's in the kitchen. Pauses on hover and switches
+   itself off entirely for visitors who asked for less motion.
+   -------------------------------------------------------------------------- */
+.dg2-ticker {
+  overflow: hidden;
+  background: var(--dg-brand);
+  color: var(--dg-brand-ink);
+  padding-block: 0.6rem;
+}
+
+.dg2-ticker-track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  animation: dg2-slide 34s linear infinite;
+}
+
+.dg2-ticker:hover .dg2-ticker-track,
+.dg2-ticker:focus-within .dg2-ticker-track { animation-play-state: paused; }
+
+.dg2-ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.dg2-ticker-item svg { width: 1rem; height: 1rem; }
+
+@keyframes dg2-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dg2-ticker-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Snap-scroll counter rail
+   home1 lays today's dishes out as a fixed three-column grid. home2 uses a
+   horizontally scrolling rail with a lead-in card, so the row can grow with
+   the menu instead of being capped at three.
+   -------------------------------------------------------------------------- */
+.dg2-rail {
+  display: flex;
+  gap: 0.85rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.25rem 0 0.9rem;
+  /* No negative margin here. The rail already sits inside .dg-shell, whose
+     padding-inline provides the gutter; pulling it back out by -1rem put
+     the first card 16px left of every section heading. */
+}
+
+.dg2-rail > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+.dg2-railcard {
+  width: 13.5rem;
+  background: var(--dg-surface);
+  border: 1px solid var(--dg-line);
+  border-radius: 1.1rem;
+  overflow: hidden;
+  box-shadow: var(--dg-shadow-sm);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.dg2-railcard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--dg-shadow);
+  border-color: var(--dg-line-strong);
+}
+
+.dg2-railcard-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--dg-surface-3);
+}
+
+.dg2-railcard-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dg2-railcard-tag {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  background: var(--dg-surface);
+  color: var(--dg-ink);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: var(--dg-shadow-sm);
+}
+
+.dg2-railcard-body { padding: 0.7rem 0.8rem 0.85rem; }
+
+.dg2-railcard-name {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  color: var(--dg-ink);
+}
+
+.dg2-railcard-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--dg-ink-mute);
+}
+
+@media (min-width: 768px) {
+  .dg2-railcard { width: 15.5rem; }
+}
+
+/* Four cards, so let them share the row evenly instead of leaving a
+   half-empty track that the user has to scroll to find the end of. */
+.dg2-rail--4 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 0.85rem;
+  overflow: visible;
+}
+
+.dg2-railcard--4 {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  min-width: 0;
+  height: 100%;
+}
+
+.dg2-railcard--4 .dg2-railcard-media { flex: none; }
+.dg2-railcard--4 .dg2-railcard-body { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.dg2-railcard--4 .dg2-railcard-name { overflow-wrap: anywhere; }
+.dg2-railcard--4 .dg2-railcard-foot { margin-top: auto; padding-top: 0.5rem; }
+
+@media (min-width: 900px) {
+  .dg2-rail--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* --------------------------------------------------------------------------
+   4. Bento category grid
+   A deliberately uneven tile wall rather than home1's equal-width rows.
+   -------------------------------------------------------------------------- */
+.dg2-bento {
+  display: grid;
+  gap: 0.75rem;
+  /* Explicit areas rather than auto-placement. Auto-flow could not fit the
+     2-column "wide" tile into the single column left over, so it wrapped to a
+     fresh row and left a visible hole in the middle-right of the wall. */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "hero hero"
+    "q1   q2"
+    "q3   q4"
+    "wide wide"
+    "tall tall";
+}
+
+@media (min-width: 768px) {
+  .dg2-bento { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+}
+
+.dg2-bento-tile {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: 1.1rem;
+  background: var(--dg-surface-3);
+  min-height: 11rem;
+  box-shadow: var(--dg-shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dg2-bento-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--dg-shadow);
+}
+
+.dg2-bento-tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.dg2-bento-tile:hover img { transform: scale(1.06); }
+
+.dg2-bento-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 16, 9, 0.82) 0%, rgba(26, 16, 9, 0.18) 55%, transparent 100%);
+}
+
+.dg2-bento-cap {
+  position: relative;
+  z-index: 1;
+  padding: 0.85rem 0.9rem;
+  color: #fff;
+  width: 100%;
+}
+
+.dg2-bento-cap strong {
+  display: block;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 0.98rem;
+  line-height: 1.2;
+}
+
+.dg2-bento-cap span {
+  display: block;
+  font-size: 0.72rem;
+  opacity: 0.86;
+  margin-top: 0.15rem;
+}
+
+.dg2-bento-tile--hero { grid-area: hero; min-height: 15rem; }
+.dg2-bento-tile--wide { grid-area: wide; min-height: 12rem; }
+.dg2-bento-tile--tall { grid-area: tall; min-height: 17rem; }
+.dg2-bento-tile--q1 { grid-area: q1; }
+.dg2-bento-tile--q2 { grid-area: q2; }
+.dg2-bento-tile--q3 { grid-area: q3; }
+.dg2-bento-tile--q4 { grid-area: q4; min-height: 10rem; }
+
+@media (min-width: 768px) {
+  .dg2-bento {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    /* 4 x 3 = 12 cells, filled exactly: hero 4 + tall 2 + wide 2 + four 1s */
+    grid-template-areas:
+      "hero hero q1  tall"
+      "hero hero q2  tall"
+      "wide wide q3  q4";
+  }
+  .dg2-bento-tile { min-height: 11rem; }
+  .dg2-bento-tile--hero { min-height: 24rem; }
+  .dg2-bento-tile--tall { min-height: 24rem; }
+  .dg2-bento-tile--wide { min-height: 11rem; }
+  .dg2-bento-tile--q4 { min-height: 11rem; }
+  .dg2-bento-cap strong { font-size: 1.12rem; }
+  .dg2-bento-cap span { font-size: 0.78rem; }
+}
+
+/* --------------------------------------------------------------------------
+   5. Numbers band
+   -------------------------------------------------------------------------- */
+.dg2-band {
+  background: var(--dg-brand-soft);
+  border-block: 1px solid var(--dg-line);
+}
+
+.dg2-band-grid {
+  display: grid;
+  gap: 1.5rem 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .dg2-band-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.dg2-band-num {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  line-height: 1;
+  color: var(--dg-brand-soft-ink);
+}
+
+.dg2-band-label {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dg-ink-soft);
+}
+
+/* --------------------------------------------------------------------------
+   6. Zig-zag story rows
+   Image and copy swap sides on alternate rows. home1 has no equivalent.
+   -------------------------------------------------------------------------- */
+.dg2-zig {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .dg2-zig { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+}
+
+/* The offset accent block lives on .dg2-zig-frame, not on the media box.
+   A ::before inside the media could never show: the media clips overflow and
+   the pseudo also sat behind the parent's own background. */
+.dg2-zig-frame {
+  position: relative;
+  padding: 0 1.1rem 1.1rem 0;
+  background: var(--dg-brand-soft);
+  border-radius: 1.4rem;
+}
+
+.dg2-zig-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.05rem;
+  box-shadow: var(--dg-shadow);
+  aspect-ratio: 5 / 4;
+  background: var(--dg-surface-3);
+}
+
+.dg2-zig-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dg2-zig + .dg2-zig { margin-top: 3rem; }
+
+@media (min-width: 900px) {
+  .dg2-zig-flip .dg2-zig-frame { order: 2; padding: 1.1rem 0 0 1.1rem; }
+  .dg2-zig + .dg2-zig { margin-top: 4.5rem; }
+}
+
+.dg2-zig-list { margin-top: 1rem; }
+
+.dg2-zig-list li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--dg-ink-soft);
+  padding-block: 0.3rem;
+}
+
+.dg2-zig-list li svg {
+  flex: 0 0 auto;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.15rem;
+  color: var(--dg-brand);
+}
+
+/* --------------------------------------------------------------------------
+   7. Vertical step timeline
+   home1 presents steps as a card grid. home2 runs them down a single spine.
+   -------------------------------------------------------------------------- */
+.dg2-timeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dg2-timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.05rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: var(--dg-line);
+}
+
+@media (min-width: 768px) {
+  .dg2-timeline::before { left: calc(50% - 1px); }
+}
+
+.dg2-tl-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.1rem 1fr;
+  gap: 0.9rem;
+  padding-bottom: 1.75rem;
+}
+
+.dg2-tl-item:last-child { padding-bottom: 0; }
+
+.dg2-tl-num {
+  position: relative;
+  z-index: 1;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--dg-brand);
+  color: var(--dg-brand-ink);
+  font-weight: 800;
+  font-size: 0.85rem;
+  box-shadow: 0 0 0 4px var(--dg-bg);
+}
+
+.dg2-tl-item h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dg-ink);
+  padding-top: 0.35rem;
+}
+
+.dg2-tl-item p {
+  font-size: 0.86rem;
+  color: var(--dg-ink-soft);
+  margin-top: 0.2rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  /* Two clean columns. The previous version tried to alternate items across
+     a centred spine, which put the number and its text box into the same
+     grid cell and made consecutive rows overlap by ~4px. */
+  .dg2-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 2.5rem;
+  }
+  .dg2-timeline::before { display: none; }
+  .dg2-tl-item {
+    grid-template-columns: 2.1rem 1fr;
+    padding-bottom: 0;
+    background: var(--dg-surface);
+    border: 1px solid var(--dg-line);
+    border-radius: 1rem;
+    padding: 0.9rem 1rem;
+    align-items: start;
+  }
+  .dg2-tl-num { box-shadow: none; }
+  .dg2-tl-item h3 { padding-top: 0.15rem; }
+}
+
+/* --------------------------------------------------------------------------
+   8. Quote cards without photos
+   -------------------------------------------------------------------------- *//* --------------------------------------------------------------------------
+   9. Quote cards without photos
+   -------------------------------------------------------------------------- */
+.dg2-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.25rem;
+  border: 1px solid var(--dg-line);
+  border-radius: 1.15rem;
+  background: var(--dg-surface);
+  box-shadow: var(--dg-shadow-sm);
+}
+
+.dg2-quote-mark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.6rem;
+  line-height: 0.6;
+  color: var(--dg-brand);
+}
+
+.dg2-quote p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--dg-ink-soft);
+  flex: 1 1 auto;
+}
+
+.dg2-quote-who {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--dg-line);
+}
+
+.dg2-quote-initial {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--dg-brown-soft);
+  color: var(--dg-brown);
+  font-weight: 800;
+  font-size: 0.8rem;
+  flex: 0 0 auto;
+}
+
+/* Target the meta wrapper by its own class. A bare `.dg2-quote-who span`
+   selector also matched the initial and the inner span, forcing the same
+   0.75rem size onto all three levels. */
+.dg2-quote-meta { min-width: 0; }
+.dg2-quote-meta b { display: block; font-size: 0.85rem; color: var(--dg-ink); }
+.dg2-quote-meta span { display: block; font-size: 0.75rem; color: var(--dg-ink-mute); }
+
+/* --------------------------------------------------------------------------
+   10. Photo-backed closing band
+   -------------------------------------------------------------------------- */
+.dg2-cta {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: var(--dg-surface-3);
+  isolation: isolate;
+}
+
+.dg2-cta img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.dg2-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, rgba(26, 16, 9, 0.9) 0%, rgba(26, 16, 9, 0.74) 45%, rgba(26, 16, 9, 0.5) 100%);
+}
+
+/* The shell only pads the panel itself, so without an inset here every
+   line of copy sat flush on the CTA's rounded border. Padding-block alone
+   left padding-inline at 0, which is what caused the edge-to-edge text.
+   Vertical padding is unchanged from the original design. */
+.dg2-cta-inner { padding-block: 2.5rem; padding-inline: 1.5rem; }
+
+@media (min-width: 768px) {
+  .dg2-cta-inner { padding-block: 3.5rem; padding-inline: 2.5rem; }
+}
+
+@media (min-width: 1100px) {
+  .dg2-cta-inner { padding-inline: 3.5rem; }
+}
+
+.dg2-cta h2 {
+  color: #fff;
+  max-width: 24ch;
+}
+
+.dg2-cta p {
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 46ch;
+}

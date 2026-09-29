@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fffbf4">
+<title>Weekly Tiffin Menu — DabbaGo</title>
+<meta name="description" content="Browse DabbaGo's rotating seven-day tiffin menu. Filter by day, breakfast, lunch or dinner, vegetarian preference and category. See every dish with its price and calories.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e2661c'/%3E%3Cpath d='M8.5 12.5h15v6.5a7.5 7.5 0 0 1-15 0z' fill='none' stroke='white' stroke-width='2.1' stroke-linejoin='round'/%3E%3Cpath d='M7.5 12.5h17' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3Cpath d='M12 9.5h8' stroke='white' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E">
+<script>
+/* Apply the saved theme and text direction before first paint so there is no flash */
+(function () {
+  try {
+    var k = "dabbago_theme";
+    var s = localStorage.getItem(k);
+    var m = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var t = (s === "light" || s === "dark") ? s : (m ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", t === "dark");
+    document.documentElement.style.colorScheme = t;
+  } catch (e) {}
+  try {
+    var d = localStorage.getItem("dabbago_dir");
+    document.documentElement.setAttribute("dir", d === "rtl" ? "rtl" : "ltr");
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        cream: 'var(--dg-bg)', softbg: 'var(--dg-bg-soft)', surface: 'var(--dg-surface)',
+        surface2: 'var(--dg-surface-2)', surface3: 'var(--dg-surface-3)', line: 'var(--dg-line)',
+        linestrong: 'var(--dg-line-strong)', ink: 'var(--dg-ink)', inksoft: 'var(--dg-ink-soft)',
+        inkmute: 'var(--dg-ink-mute)', brand: 'var(--dg-brand)', brandsoft: 'var(--dg-brand-soft)',
+        leaf: 'var(--dg-green)', leafsoft: 'var(--dg-green-soft)', cocoa: 'var(--dg-brown)'
+      },
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+};
+</script>
+<link rel="stylesheet" href="css/styles.css">
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body data-page="menu">
+<a class="dg-skip" href="#main">Skip to main content</a>
+<div id="dg-nav-root"></div>
+
+<main id="main" class="dg-main">
+
+  <!-- ================= PAGE HEAD ================= -->
+  <section class="mn-hero">
+    <div class="dg-shell">
+      <div class="mn-hero-inner" data-dg-reveal>
+          <p class="dg-eyebrow"><i data-lucide="book-open-text"></i>Weekly rotation</p>
+          <h1 class="mn-hero-title">The DabbaGo menu</h1>
+          <p class="dg-lede mn-hero-lede">
+            Seven days, three meals, about fourteen dishes a day &mdash; all cooked the same night
+            they are delivered. Pick a day, pick your meals, and save anything you want to come back to.
+          </p>
+          <div class="mn-hero-badges">
+            <span class="dg-badge dg-badge-green"><i data-lucide="leaf"></i>Vegetarian friendly</span>
+            <span class="dg-badge dg-badge-orange"><i data-lucide="flame"></i>Nutritionally balanced</span>
+            <span class="dg-badge dg-badge-brown"><i data-lucide="rotate-ccw"></i>Menu changes every Monday</span>
+          </div>
+          <p class="mn-hero-favorites"><i data-lucide="heart"></i>Save dishes with the heart button and find them in the Favourites filter.</p>
+          <p class="mn-hero-saved" data-fav-count-wrap style="display:none">
+            <span class="dg-badge dg-badge-solid"><i data-lucide="heart"></i><span data-fav-count>0</span> saved</span>
+          </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FILTERS ================= -->
+  <section style="background:var(--dg-surface);border-bottom:1px solid var(--dg-line);box-shadow:var(--dg-shadow-sm)">
+    <div class="dg-shell" style="padding-block:.75rem">
+      <div class="flex flex-col gap-2.5">
+        <div class="flex items-center gap-2.5 flex-wrap">
+          <div class="dg-input-wrap" style="flex:1 1 15rem;min-width:0">
+            <i data-lucide="search"></i>
+            <input class="dg-input" type="search" id="dg-menu-search" placeholder="Search dal, dosa, biryani…" aria-label="Search the menu" autocomplete="off">
+            <button type="button" class="dg-trailing" id="dg-search-clear" aria-label="Clear search"><i data-lucide="x"></i></button>
+          </div>
+          <div class="flex items-center gap-2" style="flex:0 1 13rem;min-width:0">
+            <label class="sr-only" for="dg-menu-sort">Sort dishes</label>
+            <select class="dg-select w-full" id="dg-menu-sort">
+              <option value="default">Sort: default</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+              <option value="calorie">Calories: lowest first</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESULTS ================= -->
+  <section class="dg-section" style="padding-top:1.5rem">
+    <div class="dg-shell">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <p class="text-sm" style="color:var(--dg-ink-soft)">
+          <strong id="dg-result-count" style="color:var(--dg-ink)">Loading…</strong>
+          <span class="dg-clamp-1" style="color:var(--dg-ink-mute)"> &middot; <span id="dg-result-summary">this week</span></span>
+        </p>
+        <p class="text-xs flex items-center gap-1.5" style="color:var(--dg-ink-mute)">
+          <span class="dg-veg">Veg</span><span class="dg-nonveg">Non-veg</span>
+        </p>
+      </div>
+
+      <div id="dg-menu-grid" class="grid gap-4" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,17.5rem),1fr))">
+        <p class="dg-lede">Loading the menu…</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CHEF'S NOTE ================= -->
+  <section class="mn-chef-note" aria-labelledby="mn-chef-title">
+    <div class="dg-shell">
+      <div class="mn-chef-layout" data-dg-reveal>
+        <div class="mn-chef-image">
+          <img src="assets/images/kitchen.jpg" alt="Chefs preparing fresh dishes in the kitchen" width="800" height="800" loading="lazy">
+        </div>
+        <div class="mn-chef-copy">
+          <p class="dg-eyebrow"><i data-lucide="chef-hat"></i>A note from our kitchen</p>
+          <h2 id="mn-chef-title">Good food starts with care.</h2>
+          <blockquote>“We taste every batch before it goes out. If it isn’t food we’d feed our own families, it doesn’t leave the kitchen.”</blockquote>
+          <p class="mn-chef-detail">We cook in small batches, taste every dish, and pack it fresh for your table.</p>
+          <p class="mn-chef-byline">Meera Rao <span>· Head of Kitchen</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MENU CTA ================= -->
+  <section class="dg-section" style="background:var(--dg-bg-soft)">
+    <div class="dg-shell">
+      <div class="dg-card dg-card-pad text-center" style="padding-block:2.25rem;max-width:46rem;margin-inline:auto" data-dg-reveal>
+        <span class="dg-icon-tile dg-icon-tile-soft mx-auto"><i data-lucide="hand-platter"></i></span>
+        <h2 class="text-2xl sm:text-3xl mt-3">Found the dishes you like?</h2>
+        <p class="dg-lede mt-2">
+          Choose a plan and we will pack exactly what you have chosen every day. You can skip a dish
+          whenever you like &mdash; the menu just moves on to the next day.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center mt-5">
+          <a class="dg-btn dg-btn-primary dg-btn-lg" href="plans.html">
+            <i data-lucide="wallet"></i>See subscription plans
+          </a>
+          <a class="dg-btn dg-btn-outline dg-btn-lg" href="delivery-area.html">
+            <i data-lucide="map-pin"></i>Check delivery in my area
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="dg-footer-root"></div>
+<div id="dg-modal-root"></div>
+
+<script defer src="js/main.js"></script>
+<script defer src="js/nav.js"></script>
+<script defer src="js/footer.js"></script>
+<script defer src="js/menu.js"></script>
+</body>
+</html>
