@@ -206,20 +206,29 @@ tailwind.config = {
   <!-- ================= CTA ================= -->
   <section class="dg-section">
     <div class="dg-shell">
-      <div class="dg-card dg-card-pad text-center" style="max-width:44rem;margin-inline:auto" data-dg-reveal>
-        <span class="dg-icon-tile dg-icon-tile-green" style="margin-inline:auto"><i data-lucide="soup"></i></span>
-        <h2 class="text-2xl sm:text-3xl mt-4">Rather just start eating?</h2>
-        <p class="dg-lede mt-2">
-          Creating an account is free and takes under a minute. Your first tiffin arrives within
-          24 hours of signing up.
-        </p>
-        <div class="flex flex-wrap gap-2.5 justify-center mt-5">
-          <a class="dg-btn dg-btn-primary dg-btn-lg" href="signup.html">
-            <i data-lucide="user-round-plus"></i>Create your account
-          </a>
-          <a class="dg-btn dg-btn-outline dg-btn-lg" href="about.html">
-            <i data-lucide="book-open"></i>Read our story
-          </a>
+      <div class="dg-card dg-close-grid dg-close-grid--flip" style="padding:clamp(1.4rem,3.5vw,2.4rem)" data-dg-reveal>
+        <div>
+          <span class="dg-icon-tile dg-icon-tile-green"><i data-lucide="soup"></i></span>
+          <h2 class="text-2xl sm:text-3xl" style="margin-top:.9rem">Rather just start eating?</h2>
+          <p class="dg-lede" style="margin-top:.6rem">
+            Creating an account is free and takes under a minute. Your first tiffin arrives within
+            24 hours of signing up.
+          </p>
+          <div class="flex flex-wrap gap-2.5" style="margin-top:1.5rem">
+            <a class="dg-btn dg-btn-primary dg-btn-lg" href="signup.html">
+              <i data-lucide="user-round-plus"></i>Create your account
+            </a>
+            <a class="dg-btn dg-btn-outline dg-btn-lg" href="about.html">
+              <i data-lucide="book-open"></i>Read our story
+            </a>
+          </div>
+          <div class="dg-close-chips">
+            <span class="dg-close-chip"><i data-lucide="clock"></i>Replies within a few hours</span>
+            <span class="dg-close-chip"><i data-lucide="message-circle"></i>WhatsApp, phone or email</span>
+          </div>
+        </div>
+        <div class="dg-close-frame dg-close-frame--4x3">
+          <img src="assets/images/paneer-butter-masala.jpg" alt="A freshly cooked bowl of paneer butter masala" width="800" height="600" loading="lazy">
         </div>
       </div>
     </div>

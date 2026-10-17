@@ -4,19 +4,22 @@
    Everything uses the shared --dg-* tokens, so light and dark mode come free.
 
    The hero deliberately mirrors the Contact page hero: one centred column,
-   max-width 44rem, no imagery. About and Contact should feel like the same
-   family of pages.
+   max-width 44rem, behind the shared page-hero scrim and photo. About and
+   Contact should feel like the same family of pages.
    -------------------------------------------------------------------------- */
 
 .ab-hero {
   position: relative;
   overflow: hidden;
-  background-image:
-    linear-gradient(90deg, color-mix(in srgb, var(--dg-bg) 94%, transparent), color-mix(in srgb, var(--dg-bg) 80%, transparent)),
-    url("../assets/images/kitchen-team.jpg");
-  background-position: center, center 54%;
+  background-image: var(--dg-hero-scrim), url("../assets/images/kitchen.jpg");
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
+
+/* The shared min-height lives in styles.css; kept here as a fallback so the
+   About hero still fills the band if the shared block ever changes. */
+.ab-hero { min-height: var(--dg-hero-h); display: flex; align-items: center; }
 
 /* Vertical padding trimmed well below the Contact hero's 2.5rem/2.75rem so
    About opens faster. The visual pattern is identical, just shallower. */

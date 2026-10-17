@@ -29,6 +29,7 @@
         theme: "dabbago_theme",
         user: "dabbago_user",
         favorites: "dabbago_favorites",
+        planPicks: "dabbago_plan_picks",
         subscription: "dabbago_subscription",
         delivery: "dabbago_delivery",
         pauseRequests: "dabbago_pause_requests",
@@ -687,6 +688,43 @@
         }
     };
 
+    /* Dishes the visitor has chosen to build a plan with. Mirrors the
+       favourites store but is a separate list, so saving a dish to a plan
+       never fights with the heart button. */
+    DG.picks = {
+        list: function () {
+            var v = DG.store.get(KEYS.planPicks, []);
+            return Array.isArray(v) ? v : [];
+        },
+        has: function (id) {
+            return DG.picks.list().indexOf(id) > -1;
+        },
+        add: function (id) {
+            var list = DG.picks.list();
+            if (list.indexOf(id) > -1) return false;
+            list.push(id);
+            DG.store.set(KEYS.planPicks, list);
+            return true;
+        },
+        remove: function (id) {
+            var list = DG.picks.list();
+            var i = list.indexOf(id);
+            if (i === -1) return false;
+            list.splice(i, 1);
+            DG.store.set(KEYS.planPicks, list);
+            return true;
+        },
+        toggle: function (id) {
+            return DG.picks.has(id) ? (DG.picks.remove(id), false) : (DG.picks.add(id), true);
+        },
+        count: function () {
+            return DG.picks.list().length;
+        },
+        clear: function () {
+            DG.store.set(KEYS.planPicks, []);
+        }
+    };
+
     DG.notify = {
         list: function () {
             var v = DG.store.get(KEYS.notifications, []);
@@ -1222,6 +1260,7 @@
         /* chrome */
         if (typeof DG.renderNavbar === "function") DG.renderNavbar();
         if (typeof DG.renderFooter === "function") DG.renderFooter();
+        if (typeof DG.renderMiniFooter === "function") DG.renderMiniFooter();
 
         initNavStuck();
         initDrawer();

@@ -163,4 +163,47 @@
         if (DG.icons) DG.icons(host);
         if (DG.reveal) DG.reveal.scan(host);
     };
+
+    /* A slim one-line footer for the pages that are not full marketing pages
+       (auth screens, member/admin dashboards). It gives those pages a proper
+       close without the height of the full sitemap footer. */
+    DG.renderMiniFooter = function (mountSelector) {
+        var host =
+            typeof mountSelector === "string" ? document.querySelector(mountSelector) : mountSelector;
+        if (!host) host = document.getElementById("dg-minifoot-root");
+        if (!host) return;
+
+        var year = new Date().getFullYear();
+
+        var links = [
+            { href: "index.html", label: "Home" },
+            { href: "menu.html", label: "Menu" },
+            { href: "plans.html", label: "Plans" },
+            { href: "delivery-area.html", label: "Delivery" },
+            { href: "contact.html", label: "Contact" }
+        ];
+
+        host.innerHTML = [
+            '<footer class="dg-minifoot">',
+            '<div class="dg-minifoot-inner">',
+            '<span class="dg-minifoot-copy">&copy; ' + year + " DabbaGo Foods Pvt. Ltd.</span>",
+            '<nav class="dg-minifoot-links" aria-label="Footer">',
+            links
+                .map(function (l) {
+                    return '<a href="' + l.href + '">' + DG.esc(l.label) + "</a>";
+                })
+                .join(""),
+            "</nav>",
+            '<span class="dg-minifoot-meta">',
+            "<span>Made with care in Mumbai</span>",
+            '<span aria-hidden="true">&middot;</span>',
+            '<a href="#" data-dg-totop>Back to top</a>',
+            "</span>",
+            "</div>",
+            "</footer>"
+        ].join("");
+
+        if (DG.icons) DG.icons(host);
+        if (DG.reveal) DG.reveal.scan(host);
+    };
 })();

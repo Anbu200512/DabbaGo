@@ -271,20 +271,30 @@ tailwind.config = {
   <!-- ================= CTA ================= -->
   <section class="dg-section" style="background:var(--dg-bg-soft)">
     <div class="dg-shell">
-      <div class="dg-card dg-card-pad text-center" style="max-width:44rem;margin-inline:auto" data-dg-reveal>
-        <span class="dg-icon-tile" style="margin-inline:auto"><i data-lucide="soup"></i></span>
-        <h2 class="text-2xl sm:text-3xl mt-4">Your first tiffin is 24 hours away</h2>
-        <p class="dg-lede mt-2">
-          Plans start at &#8377;899 a week. Free delivery in Zone 1 and on every monthly plan, and you
-          can pause whenever you go home.
-        </p>
-        <div class="flex flex-wrap gap-2.5 justify-center mt-5">
-          <a class="dg-btn dg-btn-primary dg-btn-lg" href="signup.html">
-            <i data-lucide="user-round-plus"></i>Create your account
-          </a>
-          <a class="dg-btn dg-btn-outline dg-btn-lg" href="contact.html">
-            <i data-lucide="headset"></i>Talk to us first
-          </a>
+      <div class="dg-card dg-close-grid dg-close-grid--flip" style="padding:clamp(1.4rem,3.5vw,2.4rem)" data-dg-reveal>
+        <div>
+          <span class="dg-icon-tile"><i data-lucide="soup"></i></span>
+          <h2 class="text-2xl sm:text-3xl" style="margin-top:.9rem">Your first tiffin is 24 hours away</h2>
+          <p class="dg-lede" style="margin-top:.6rem">
+            Plans start at &#8377;899 a week. Free delivery in Zone 1 and on every monthly plan, and you
+            can pause whenever you go home.
+          </p>
+          <div class="flex flex-wrap gap-2.5" style="margin-top:1.5rem">
+            <a class="dg-btn dg-btn-primary dg-btn-lg" href="signup.html">
+              <i data-lucide="user-round-plus"></i>Create your account
+            </a>
+            <a class="dg-btn dg-btn-outline dg-btn-lg" href="contact.html">
+              <i data-lucide="headset"></i>Talk to us first
+            </a>
+          </div>
+          <div class="dg-close-stats">
+            <div class="dg-close-stat"><b>2019</b><span>cooking since</span></div>
+            <div class="dg-close-stat"><b>9</b><span>people in the kitchen</span></div>
+            <div class="dg-close-stat"><b>6</b><span>riders on the road</span></div>
+          </div>
+        </div>
+        <div class="dg-close-frame dg-close-frame--4x3">
+          <img src="assets/images/kitchen-team.jpg" alt="The DabbaGo kitchen team preparing the day's meals" width="800" height="600" loading="lazy">
         </div>
       </div>
     </div>

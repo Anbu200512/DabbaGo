@@ -244,17 +244,126 @@
         box.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
 
+    function initAreaCombobox(input, list) {
+        if (!input || !list) return;
+
+        var active = -1;
+        var visible = [];
+
+        function close() {
+            list.hidden = true;
+            input.setAttribute("aria-expanded", "false");
+            input.removeAttribute("aria-activedescendant");
+            active = -1;
+        }
+
+        function open() {
+            list.hidden = !list.children.length;
+            input.setAttribute("aria-expanded", list.hidden ? "false" : "true");
+        }
+
+        function render(query) {
+            var q = String(query || "").trim().toLowerCase();
+            visible = ALL_AREAS.filter(function (a) {
+                return !q || a.name.toLowerCase().indexOf(q) > -1;
+            }).slice(0, 8);
+
+            if (!visible.length) {
+                list.innerHTML =
+                    '<li class="dg-combobox-empty" role="presentation">No matching area</li>';
+                active = -1;
+                return;
+            }
+
+            list.innerHTML = visible.map(function (a, i) {
+                return (
+                    '<li class="dg-combobox-option" role="option" id="dg-area-opt-' + i +
+                    '" data-index="' + i + '" aria-selected="false">' +
+                    "<span>" + DG.esc(a.name) + "</span>" +
+                    '<span class="dg-combobox-zone">' +
+                    DG.esc(a.zone.name.replace(/^Zone \d+ \u2014 /, "")) + "</span></li>"
+                );
+            }).join("");
+        }
+
+        function setActive(i) {
+            var opts = list.querySelectorAll(".dg-combobox-option");
+            if (!opts.length) return;
+            if (i < 0) i = opts.length - 1;
+            if (i >= opts.length) i = 0;
+            active = i;
+            Array.prototype.forEach.call(opts, function (o, idx) {
+                var on = idx === i;
+                o.classList.toggle("is-active", on);
+                o.setAttribute("aria-selected", on ? "true" : "false");
+            });
+            var el = opts[i];
+            if (el) {
+                input.setAttribute("aria-activedescendant", el.id);
+                el.scrollIntoView({ block: "nearest" });
+            }
+        }
+
+        function choose(i) {
+            if (i < 0 || i >= visible.length) return;
+            input.value = visible[i].name;
+            close();
+        }
+
+        input.addEventListener("focus", function () {
+            render(input.value);
+            open();
+        });
+
+        input.addEventListener("input", function () {
+            render(input.value);
+            open();
+        });
+
+        input.addEventListener("keydown", function (e) {
+            if (e.key === "ArrowDown") {
+                e.preventDefault();
+                if (list.hidden) {
+                    render(input.value);
+                    open();
+                }
+                setActive(active + 1);
+            } else if (e.key === "ArrowUp") {
+                e.preventDefault();
+                setActive(active - 1);
+            } else if (e.key === "Enter") {
+                if (active > -1 && !list.hidden) {
+                    e.preventDefault();
+                    choose(active);
+                }
+            } else if (e.key === "Escape") {
+                close();
+            }
+        });
+
+        /* mousedown, not click: preventDefault keeps the input focused so the
+           blur handler cannot close the list before the choice is applied. */
+        list.addEventListener("mousedown", function (e) {
+            var opt = e.target.closest(".dg-combobox-option");
+            if (!opt) return;
+            e.preventDefault();
+            choose(parseInt(opt.dataset.index, 10));
+        });
+
+        input.addEventListener("blur", function () {
+            window.setTimeout(close, 120);
+        });
+    }
+
     function initChecker() {
         var form = document.getElementById("dg-area-form");
         if (!form) return;
 
-        /* area datalist */
-        var list = document.getElementById("dg-area-options");
-        if (list) {
-            list.innerHTML = ALL_AREAS.map(function (a) {
-                return '<option value="' + DG.esc(a.name) + '"></option>';
-            }).join("");
-        }
+        /* area autocomplete (custom, so it can follow the dark-mode tokens) */
+        initAreaCombobox(
+            document.getElementById("dg-area-name"),
+            document.getElementById("dg-area-options")
+        );
 
         /* prefill from the signed-in user */
         var user = DG.auth.user();

@@ -74,6 +74,17 @@
     --dg-nav-h: 68px;
     /* total fixed header height (the bar is the only fixed piece) */
     --dg-head-h: var(--dg-nav-h);
+
+    /* Shared page-hero height. Every marketing hero uses the same height and
+       the same scrim tokens so they line up page to page. The scrim is a
+       semi-transparent coat of the page background, so it tints the photo to
+       stay legible while still letting the image read clearly. */
+    --dg-hero-h: 24rem;
+    --dg-hero-scrim: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--dg-bg) 70%, transparent),
+        color-mix(in srgb, var(--dg-bg) 54%, transparent)
+    );
     color-scheme: light;
 }
 
@@ -114,6 +125,12 @@
     --dg-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), 0 12px 30px rgba(0, 0, 0, 0.32);
     --dg-shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.5), 0 28px 60px rgba(0, 0, 0, 0.4);
     --dg-ring: rgba(251, 138, 69, 0.4);
+
+    --dg-hero-scrim: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--dg-bg) 66%, transparent),
+        color-mix(in srgb, var(--dg-bg) 52%, transparent)
+    );
 
     color-scheme: dark;
 }
@@ -755,6 +772,65 @@ hr {
 .dg-input-wrap .dg-trailing svg { position: static; width: 1.1rem; height: 1.1rem; pointer-events: auto; }
 
 .dg-input-wrap:has(.dg-trailing) .dg-input { padding-right: 2.9rem; }
+
+/* ---- Custom autocomplete dropdown (replaces the native <datalist>) ----
+   The native datalist popup is drawn by the OS and keeps its light styling
+   in dark mode. This panel is anchored to .dg-input-wrap, so it is always
+   exactly as wide as the field it belongs to, and it uses the same --dg-*
+   tokens as every other surface, so dark mode comes for free. */
+.dg-combobox-list {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    right: 0;
+    z-index: 40;
+    max-height: 15rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin: 0;
+    padding: 0.3rem;
+    list-style: none;
+    border: 1px solid var(--dg-line-strong);
+    border-radius: 0.75rem;
+    background: var(--dg-surface);
+    box-shadow: var(--dg-shadow-md);
+}
+
+.dg-combobox-list[hidden] { display: none; }
+
+.dg-combobox-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 0.65rem;
+    border-radius: 0.55rem;
+    font-size: 0.88rem;
+    color: var(--dg-ink);
+    cursor: pointer;
+}
+
+.dg-combobox-option:hover,
+.dg-combobox-option.is-active {
+    background: var(--dg-brand-soft);
+    color: var(--dg-brand-soft-ink);
+}
+
+.dg-combobox-option .dg-combobox-zone {
+    flex: none;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--dg-ink-mute);
+}
+
+.dg-combobox-option:hover .dg-combobox-zone,
+.dg-combobox-option.is-active .dg-combobox-zone { color: var(--dg-brand-soft-ink); }
+
+.dg-combobox-empty {
+    padding: 0.55rem 0.65rem;
+    font-size: 0.82rem;
+    color: var(--dg-ink-mute);
+}
 
 /* validation states */
 .dg-field.is-invalid .dg-input,
@@ -3027,15 +3103,59 @@ body.dg-no-scroll { overflow: hidden; }
     body { background: #fff; color: #000; }
 }
 
-/* Menu page hero, styled to match the About page intro */
-.mn-hero {
+/* --------------------------------------------------------------------------
+   Shared marketing hero
+   Every content page hero (Menu, Plans, Delivery, About, Contact) shares this
+   geometry: the same height, the same vertical centring, and the same scrim
+   token over its own photo, so the pages feel like one family.
+   -------------------------------------------------------------------------- */
+.mn-hero,
+.pl-hero,
+.da-hero,
+.co-hero,
+.ab-hero,
+.dg-hero-home {
     position: relative;
     overflow: hidden;
-    background-image:
-        linear-gradient(90deg, color-mix(in srgb, var(--dg-bg) 92%, transparent), color-mix(in srgb, var(--dg-bg) 76%, transparent)),
-        url("../assets/images/veg-biryani.jpg");
-    background-position: center, center 54%;
+    display: flex;
+    align-items: center;
+    min-height: var(--dg-hero-h);
+    background-image: var(--dg-hero-scrim);
+    background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Content-page heroes (Menu, Plans, Delivery, About, Contact) share one exact
+   height on larger screens so they line up page to page. Below 900px they fall
+   back to the shared min-height, so wrapping copy is never clipped. Home heroes
+   (index / home2) are intentionally excluded — they carry more content. */
+@media (min-width: 900px) {
+    .mn-hero,
+    .pl-hero,
+    .da-hero,
+    .co-hero,
+    .ab-hero {
+        height: var(--dg-hero-h);
+    }
+}
+
+/* Menu page hero, styled to match the About page intro */
+.mn-hero {
+    background-image: var(--dg-hero-scrim), url("../assets/images/veg-biryani.jpg");
+}
+
+/* Home hero: two columns, so the scrim runs left to right — heaviest behind
+   the copy on the left, lightest on the right where the dish photo sits. */
+.dg-hero-home {
+    background-color: var(--dg-bg-soft);
+    background-image:
+        linear-gradient(90deg,
+            color-mix(in srgb, var(--dg-bg) 95%, transparent) 0%,
+            color-mix(in srgb, var(--dg-bg) 83%, transparent) 46%,
+            color-mix(in srgb, var(--dg-bg) 60%, transparent) 100%),
+        url("../assets/images/cooker-tiffin.jpg");
+    background-position: center, center 45%;
 }
 
 .mn-hero-inner {
@@ -3065,6 +3185,48 @@ body.dg-no-scroll { overflow: hidden; }
     .mn-hero-favorites { align-items: flex-start; line-height: 1.5; }
 }
 
+/* Menu page — running "N dishes in your plan" bar, shown once the visitor has
+   picked at least one dish, and the per-card Add to plan CTA. */
+.mn-picks-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding: 0.7rem 0.95rem;
+    border: 1px solid color-mix(in srgb, var(--dg-brand) 30%, transparent);
+    border-radius: 0.9rem;
+    background: var(--dg-brand-soft);
+    color: var(--dg-brand-soft-ink);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.mn-picks-bar[hidden] { display: none; }
+
+.mn-picks-bar:hover,
+.mn-picks-bar:focus-visible { text-decoration: none; }
+.mn-picks-bar > svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.mn-picks-bar strong { color: inherit; }
+.mn-picks-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-inline-start: auto;
+    font-weight: 800;
+}
+.mn-picks-cta svg { width: 0.95rem; height: 0.95rem; }
+.mn-picks-bar:hover .mn-picks-cta { text-decoration: underline; }
+
+.mn-add { flex: none; }
+.mn-add.is-on {
+    background: var(--dg-green);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: none;
+}
+
 .mn-chef-note { padding-block: 3rem; background: var(--dg-bg-soft); }
 .mn-chef-layout { display: grid; overflow: hidden; border: 1px solid var(--dg-line); border-radius: 1.35rem; background: var(--dg-surface); box-shadow: var(--dg-shadow-sm); }
 .mn-chef-image { min-height: 14rem; }
@@ -3084,13 +3246,7 @@ body.dg-no-scroll { overflow: hidden; }
 
 /* Plans page hero, matching the centered About and Menu intros */
 .pl-hero {
-    position: relative;
-    overflow: hidden;
-    background-image:
-        linear-gradient(90deg, color-mix(in srgb, var(--dg-bg) 92%, transparent), color-mix(in srgb, var(--dg-bg) 76%, transparent)),
-        url("../assets/images/greeting-thali.jpg");
-    background-position: center, center 54%;
-    background-size: cover;
+    background-image: var(--dg-hero-scrim), url("../assets/images/greeting-thali.jpg");
 }
 
 .pl-hero-inner { max-width: 50rem; margin-inline: auto; padding-block: 2.25rem 2.5rem; text-align: center; }
@@ -3106,7 +3262,13 @@ body.dg-no-scroll { overflow: hidden; }
 }
 
 /* Subscription plan comparison table */
-.pl-compare-wrap { border-radius: 1.15rem; box-shadow: var(--dg-shadow-md); }
+.pl-compare-wrap { border-radius: 1.15rem; box-shadow: var(--dg-shadow-md); scroll-behavior: smooth; }
+.pl-compare-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-top: 0.75rem; min-height: 2.4rem; }
+.pl-compare-nav { display: flex; align-items: center; gap: 0.5rem; margin-inline-start: auto; }
+.pl-compare-nav[hidden] { display: none; }
+.pl-compare-nav-btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+.pl-compare-nav-btn[disabled]:hover { color: var(--dg-ink-soft); border-color: var(--dg-line); background: var(--dg-surface); }
+[dir="rtl"] .pl-compare-nav-btn svg { transform: scaleX(-1); }
 .pl-compare-table { border-collapse: separate; border-spacing: 0; min-width: 68rem !important; }
 .pl-compare-table thead th { padding-block: 1.15rem; background: var(--dg-surface-2); text-align: center; vertical-align: bottom; }
 .pl-compare-table thead th:first-child { position: sticky; left: 0; z-index: 3; width: 12rem; min-width: 12rem; text-align: left; }
@@ -3145,13 +3307,7 @@ body.dg-no-scroll { overflow: hidden; }
 
 /* Delivery coverage page hero */
 .da-hero {
-    position: relative;
-    overflow: hidden;
-    background-image:
-        linear-gradient(90deg, color-mix(in srgb, var(--dg-bg) 92%, transparent), color-mix(in srgb, var(--dg-bg) 76%, transparent)),
-        url("../assets/images/bike-delivery.jpg");
-    background-position: center, center 54%;
-    background-size: cover;
+    background-image: var(--dg-hero-scrim), url("../assets/images/bike-delivery.jpg");
 }
 
 .da-hero-inner { max-width: 50rem; margin-inline: auto; padding-block: 2.25rem 2.5rem; text-align: center; }
@@ -3196,13 +3352,7 @@ body.dg-no-scroll { overflow: hidden; }
 
 /* Contact page hero, matching the other centered page introductions */
 .co-hero {
-    position: relative;
-    overflow: hidden;
-    background-image:
-        linear-gradient(90deg, color-mix(in srgb, var(--dg-bg) 92%, transparent), color-mix(in srgb, var(--dg-bg) 76%, transparent)),
-        url("../assets/images/kitchen.jpg");
-    background-position: center, center 54%;
-    background-size: cover;
+    background-image: var(--dg-hero-scrim), url("../assets/images/kitchen.jpg");
 }
 
 .co-hero-inner { max-width: 48rem; margin-inline: auto; padding-block: 2.25rem 2.5rem; text-align: center; }
@@ -3284,4 +3434,148 @@ body.dg-no-scroll { overflow: hidden; }
     .dg-drawer-link > svg:not(.dg-dd-caret) { display: none; }
     .dg-dd-item > svg { display: none; }
     .dg-drawer-login > svg { display: none; }
+}
+
+/* ==========================================================================
+   Closing section — the last band on every marketing page.
+   A small set of shared building blocks (split grid, image frame, fact chips,
+   stat row) that each page composes differently, so the final section gets its
+   own shape and a relevant photo while spacing, radii and tokens stay
+   consistent across the whole site.
+   ========================================================================== */
+
+/* Two-up split: copy beside a photo. `--flip` swaps which side the photo sits
+   on, so neighbouring pages do not all close the same way. */
+.dg-close-grid { display: grid; align-items: center; gap: 1.75rem; }
+
+@media (min-width: 900px) {
+    .dg-close-grid {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 3.25rem;
+    }
+    .dg-close-grid--flip > :first-child { order: 2; }
+}
+
+/* Rounded photo frame */
+.dg-close-frame {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--dg-line);
+    border-radius: 1.4rem;
+    background: var(--dg-surface-3);
+    box-shadow: var(--dg-shadow-md);
+}
+
+.dg-close-frame > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.dg-close-frame--16x11 { aspect-ratio: 16 / 11; }
+.dg-close-frame--4x3 { aspect-ratio: 4 / 3; }
+.dg-close-frame--1x1 { aspect-ratio: 1; }
+
+/* A smaller photo tucked into the corner of the main one */
+.dg-close-stack { position: relative; }
+
+.dg-close-stack > .dg-close-frame--float {
+    position: absolute;
+    bottom: -1.25rem;
+    width: 42%;
+    max-width: 12rem;
+    border: 4px solid var(--dg-surface);
+}
+
+[dir="ltr"] .dg-close-stack > .dg-close-frame--float { right: -1rem; }
+[dir="rtl"] .dg-close-stack > .dg-close-frame--float { left: -1rem; }
+
+@media (max-width: 639px) {
+    .dg-close-stack > .dg-close-frame--float { display: none; }
+}
+
+/* Small feature / reassurance chips */
+.dg-close-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.35rem; }
+
+.dg-close-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.42rem 0.72rem;
+    border: 1px solid var(--dg-line);
+    border-radius: 999px;
+    background: var(--dg-surface-2);
+    color: var(--dg-ink-soft);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.dg-close-chip > svg { width: 0.95rem; height: 0.95rem; color: var(--dg-brand); flex: none; }
+
+/* Same chips, tuned for the dark photo-overlay band on Home 2 */
+.dg-close-chips--on-dark .dg-close-chip {
+    border-color: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.dg-close-chips--on-dark .dg-close-chip > svg { color: #ffc79b; }
+
+/* Numbered / short-fact stats row */
+.dg-close-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+    gap: 1rem;
+    margin-top: 1.85rem;
+}
+
+.dg-close-stat b {
+    display: block;
+    font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--dg-ink);
+}
+
+.dg-close-stat span { display: block; margin-top: 0.25rem; font-size: 0.78rem; color: var(--dg-ink-mute); }
+
+/* Keeps the photo frame reading correctly against the dark brown band */
+.dg-close-on-brown .dg-close-frame { border-color: color-mix(in srgb, #fff 18%, transparent); }
+
+/* ==========================================================================
+   Mini footer — the compact close for auth screens and dashboards.
+   One slim line: copyright, quick links and a back-to-top control. Keeps
+   those pages from ending on an abrupt, chrome-less edge while staying far
+   lighter than the full sitemap footer.
+   ========================================================================== */
+
+.dg-minifoot {
+    margin-top: auto;
+    border-top: 1px solid var(--dg-line);
+    background: var(--dg-surface);
+}
+
+.dg-minifoot-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.55rem 1.4rem;
+    width: 100%;
+    padding: 0.95rem clamp(1rem, 3vw, 2.5rem);
+    color: var(--dg-ink-mute);
+    font-size: 0.8rem;
+}
+
+.dg-minifoot-copy { font-weight: 600; }
+
+.dg-minifoot-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.05rem; }
+
+.dg-minifoot-links a,
+.dg-minifoot-meta a { color: var(--dg-ink-soft); font-weight: 600; transition: color 0.15s ease; }
+
+.dg-minifoot-links a:hover,
+.dg-minifoot-meta a:hover { color: var(--dg-brand); }
+
+.dg-minifoot-meta { display: inline-flex; align-items: center; gap: 0.5rem; }
+
+@media (max-width: 640px) {
+    .dg-minifoot-inner { justify-content: center; text-align: center; }
 }

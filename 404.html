@@ -53,6 +53,18 @@ tailwind.config = {
 </head>
 <body data-page="notfound" class="standalone-404">
 <a class="dg-skip" href="#main">Skip to main content</a>
+<div id="dg-nav-root">
+  <noscript>
+    <div class="dg-noscript">Enable JavaScript to browse the full menu. You can also call us on +91 98765 43210.</div>
+    <div style="padding:1rem">
+      <a href="index.html">Home</a> &middot;
+      <a href="menu.html">Menu</a> &middot;
+      <a href="plans.html">Plans</a> &middot;
+      <a href="delivery-area.html">Delivery Area</a> &middot;
+      <a href="contact.html">Contact</a>
+    </div>
+  </noscript>
+</div>
 
 <main id="main" class="dg-main">
 
@@ -81,14 +93,35 @@ tailwind.config = {
           <i data-lucide="utensils-crossed"></i>See today&rsquo;s menu
         </a>
       </div>
+
+      <div class="grid gap-3 mt-6 w-full" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));max-width:44rem;text-align:left">
+        <a class="dg-card dg-card-hover dg-card-pad" href="menu.html">
+          <span class="dg-icon-tile dg-icon-tile-soft"><i data-lucide="utensils-crossed"></i></span>
+          <h2 class="text-base" style="margin-top:.6rem">This week&rsquo;s menu</h2>
+          <p class="text-sm dg-lede" style="margin-top:.3rem">All fourteen dishes a day, with prices and calories.</p>
+        </a>
+        <a class="dg-card dg-card-hover dg-card-pad" href="plans.html">
+          <span class="dg-icon-tile dg-icon-tile-green"><i data-lucide="wallet"></i></span>
+          <h2 class="text-base" style="margin-top:.6rem">Plans &amp; pricing</h2>
+          <p class="text-sm dg-lede" style="margin-top:.3rem">Weekly and monthly tiffin plans from &#8377;899.</p>
+        </a>
+        <a class="dg-card dg-card-hover dg-card-pad" href="delivery-area.html">
+          <span class="dg-icon-tile dg-icon-tile-brown"><i data-lucide="map-pin"></i></span>
+          <h2 class="text-base" style="margin-top:.6rem">Delivery areas</h2>
+          <p class="text-sm dg-lede" style="margin-top:.3rem">Check whether we reach your pincode.</p>
+        </a>
+      </div>
     </div>
 
   </section>
 
 </main>
 
+<div id="dg-footer-root"></div>
 <div id="dg-modal-root"></div>
 
 <script defer src="js/main.js"></script>
+<script defer src="js/nav.js"></script>
+<script defer src="js/footer.js"></script>
 </body>
 </html>

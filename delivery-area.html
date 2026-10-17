@@ -101,10 +101,11 @@ tailwind.config = {
             <label class="dg-label" for="dg-area-name">Area or locality <span class="req">*</span></label>
             <div class="dg-input-wrap">
               <i data-lucide="home"></i>
-              <input class="dg-input" type="text" id="dg-area-name" name="area" list="dg-area-options"
-                     placeholder="Andheri West" autocomplete="address-level2" required>
+              <input class="dg-input" type="text" id="dg-area-name" name="area"
+                     placeholder="Andheri West" autocomplete="off" role="combobox"
+                     aria-expanded="false" aria-controls="dg-area-options" aria-autocomplete="list" required>
+              <ul class="dg-combobox-list" id="dg-area-options" role="listbox" aria-label="Delivery areas" hidden></ul>
             </div>
-            <datalist id="dg-area-options"></datalist>
             <p class="dg-error" id="dg-area-name-error"><i data-lucide="circle-alert"></i>Tell us your area so we can match it.</p>
           </div>
           <div class="da-check-actions">
@@ -204,17 +205,32 @@ tailwind.config = {
   <!-- ================= CTA ================= -->
   <section class="dg-section">
     <div class="dg-shell">
-      <div class="dg-card dg-card-pad text-center" style="padding-block:2.25rem;max-width:46rem;margin-inline:auto" data-dg-reveal>
-        <span class="dg-icon-tile mx-auto"><i data-lucide="hand-platter"></i></span>
-        <h2 class="text-2xl sm:text-3xl mt-3">We deliver in your area</h2>
-        <p class="dg-lede mt-2">Pick a plan, tell us your hostel or flat, and your first tiffin is on its way the next day.</p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center mt-5">
-          <a class="dg-btn dg-btn-primary dg-btn-lg" href="plans.html">
-            <i data-lucide="wallet"></i>Choose a plan
-          </a>
-          <a class="dg-btn dg-btn-outline dg-btn-lg" href="signup.html">
-            <i data-lucide="user-round"></i>Create an account
-          </a>
+      <div class="dg-card dg-close-grid dg-close-grid--flip" style="padding:clamp(1.4rem,3.5vw,2.4rem)" data-dg-reveal>
+        <div>
+          <span class="dg-icon-tile"><i data-lucide="hand-platter"></i></span>
+          <h2 class="text-2xl sm:text-3xl" style="margin-top:.9rem">We deliver in your area</h2>
+          <p class="dg-lede" style="margin-top:.6rem">Pick a plan, tell us your hostel or flat, and your first tiffin is on its way the next day.</p>
+          <div class="flex flex-col sm:flex-row gap-3" style="margin-top:1.5rem">
+            <a class="dg-btn dg-btn-primary dg-btn-lg" href="plans.html">
+              <i data-lucide="wallet"></i>Choose a plan
+            </a>
+            <a class="dg-btn dg-btn-outline dg-btn-lg" href="signup.html">
+              <i data-lucide="user-round"></i>Create an account
+            </a>
+          </div>
+          <div class="dg-close-chips">
+            <span class="dg-close-chip"><i data-lucide="circle-check"></i>5 zones covered</span>
+            <span class="dg-close-chip"><i data-lucide="clock-4"></i>2-hour delivery windows</span>
+            <span class="dg-close-chip"><i data-lucide="message-circle"></i>Live rider updates</span>
+          </div>
+        </div>
+        <div class="dg-close-stack">
+          <div class="dg-close-frame dg-close-frame--4x3">
+            <img src="assets/images/food-package.jpg" alt="A packed DabbaGo tiffin box ready for the rider" width="800" height="600" loading="lazy">
+          </div>
+          <div class="dg-close-frame dg-close-frame--1x1 dg-close-frame--float">
+            <img src="assets/images/packaging.jpg" alt="Leak-proof packaging used for every DabbaGo delivery" width="400" height="400" loading="lazy">
+          </div>
         </div>
       </div>
     </div>

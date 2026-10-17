@@ -33,12 +33,7 @@
     </a>
     <div class="ad-workspace"><span class="ad-workspace-mark"><i data-lucide="user-round"></i></span><span><strong>My account</strong><small>Subscriber dashboard</small></span></div>
     <nav id="dg-dash-tabs" class="ad-nav dp-user-nav" aria-label="Dashboard sections"></nav>
-    <div class="dashboard-sidebar-controls" aria-label="Display options">
-      <button type="button" class="dg-iconbtn" data-dg-dir-toggle aria-pressed="false" aria-label="Switch to right-to-left" title="Switch to RTL"><i data-lucide="arrow-right-left" class="dg-icon-ltr"></i><i data-lucide="arrow-left-right" class="dg-icon-rtl"></i></button>
-      <button type="button" class="dg-iconbtn" data-dg-theme-toggle aria-label="Toggle dark mode"><i data-lucide="moon"></i></button>
-    </div>
     <div class="ad-sidebar-bottom">
-      <a class="ad-nav-item" href="menu.html"><i data-lucide="utensils-crossed"></i>Browse menu</a>
       <button type="button" class="ad-nav-item ad-signout" data-dg-signout><i data-lucide="log-out"></i>Sign out</button>
     </div>
   </aside>
@@ -51,11 +46,11 @@
         <span><span class="ad-topbar-label">Member workspace</span><strong>My dashboard</strong></span>
       </div>
       <div class="dp-topbar-actions">
+        <span class="ad-admin-avatar"><i data-lucide="user-round"></i></span>
         <div class="dashboard-topbar-controls" aria-label="Display options">
           <button type="button" class="dg-iconbtn" data-dg-dir-toggle aria-pressed="false" aria-label="Switch to right-to-left" title="Switch to RTL"><i data-lucide="arrow-right-left" class="dg-icon-ltr"></i><i data-lucide="arrow-left-right" class="dg-icon-rtl"></i></button>
           <button type="button" class="dg-iconbtn" data-dg-theme-toggle aria-label="Toggle dark mode"><i data-lucide="moon"></i></button>
         </div>
-        <span class="ad-admin-avatar"><i data-lucide="user-round"></i></span>
         <button type="button" class="dg-iconbtn dashboard-menu-toggle" data-dashboard-sidebar-toggle aria-expanded="false" aria-label="Open dashboard menu"><i data-lucide="menu"></i></button>
       </div>
     </header>
@@ -84,11 +79,13 @@
         <section id="dg-p-notifications" class="is-hidden" aria-label="Notifications"></section>
       </div>
     </main>
+    <div id="dg-minifoot-root"></div>
   </div>
 </div>
 <div id="dg-modal-root"></div>
 
 <script defer src="js/main.js"></script>
+<script defer src="js/footer.js"></script>
 <script defer src="js/auth.js"></script>
 <script defer src="js/menu.js"></script>
 <script defer src="js/plans.js"></script>

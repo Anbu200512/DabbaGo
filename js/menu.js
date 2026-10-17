@@ -423,6 +423,7 @@
 
     function card(m) {
         var fav = DG.favorites.has(m.id);
+        var picked = DG.picks.has(m.id);
         return (
             '<article class="dg-card dg-card-hover overflow-hidden flex flex-col" data-id="' + m.id + '">' +
             '<div class="dg-media dg-media-4x3" style="border-radius:0">' +
@@ -445,7 +446,11 @@
             "</div>" +
             '<div class="flex items-center justify-between gap-2 mt-auto pt-1">' +
             '<span class="dg-price">' + DG.fmt.money(m.price) + "</span>" +
-            '<span class="dg-badge dg-badge-brown"><i data-lucide="shopping-bag"></i>Add to plan</span>' +
+            '<button type="button" class="dg-btn dg-btn-primary dg-btn-sm mn-add' + (picked ? " is-on" : "") + '" ' +
+            'data-pick="' + m.id + '" aria-pressed="' + picked + '" ' +
+            'aria-label="' + (picked ? "Remove " + DG.esc(m.name) + " from your plan" : "Add " + DG.esc(m.name) + " to your plan") + '">' +
+            '<i data-lucide="' + (picked ? "check" : "shopping-bag") + '"></i>' +
+            (picked ? "Added" : "Add to plan") + "</button>" +
             "</div>" +
             "</div></article>"
         );
@@ -483,6 +488,7 @@
 
         DG.icons(els.grid);
         updateFavCount();
+        updatePicksCount();
     }
 
     function dayLabel(key) {
@@ -498,6 +504,13 @@
         Array.prototype.forEach.call(document.querySelectorAll("[data-fav-count-wrap]"), function (el) {
             el.style.display = n > 0 ? "" : "none";
         });
+    }
+
+    /* Keeps the "N dishes in your plan" bar in sync with the stored picks */
+    function updatePicksCount() {
+        var n = DG.picks.count();
+        if (els.picksCount) els.picksCount.textContent = n;
+        if (els.picksBar) els.picksBar.hidden = n === 0;
     }
 
     function resetFilters() {
@@ -525,6 +538,8 @@
         els.summary = document.getElementById("dg-result-summary");
         els.search = document.getElementById("dg-menu-search");
         els.sort = document.getElementById("dg-menu-sort");
+        els.picksBar = document.getElementById("dg-picks-bar");
+        els.picksCount = document.getElementById("dg-picks-count");
 
         if (!els.grid) return;
 
@@ -566,6 +581,31 @@
             }
             if (e.target.closest("[data-reset]")) {
                 resetFilters();
+                return;
+            }
+            var pickBtn = e.target.closest("[data-pick]");
+            if (pickBtn) {
+                e.preventDefault();
+                var picked = DG.picks.toggle(pickBtn.dataset.pick);
+                var pickedMeal = DG.data.byId(pickBtn.dataset.pick);
+                pickBtn.setAttribute("aria-pressed", picked ? "true" : "false");
+                pickBtn.classList.toggle("is-on", picked);
+                pickBtn.innerHTML =
+                    '<i data-lucide="' + (picked ? "check" : "shopping-bag") + '"></i>' + (picked ? "Added" : "Add to plan");
+                if (pickedMeal) {
+                    pickBtn.setAttribute(
+                        "aria-label",
+                        picked ? "Remove " + pickedMeal.name + " from your plan" : "Add " + pickedMeal.name + " to your plan"
+                    );
+                }
+                DG.icons(pickBtn);
+                DG.toast(
+                    picked
+                        ? (pickedMeal ? pickedMeal.name : "Dish") + " added to your plan."
+                        : (pickedMeal ? pickedMeal.name : "Dish") + " removed from your plan.",
+                    { title: picked ? "Added to your plan" : "Removed from your plan", type: picked ? "success" : "info", timeout: 2400 }
+                );
+                updatePicksCount();
                 return;
             }
             var favBtn = e.target.closest("[data-fav]");

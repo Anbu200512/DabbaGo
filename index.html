@@ -79,7 +79,7 @@ tailwind.config = {
 <main id="main" class="dg-main">
 
   <!-- ================= HERO ================= -->
-  <section class="relative overflow-hidden" style="background:var(--dg-bg-soft)">
+  <section class="relative overflow-hidden dg-hero-home">
     <span class="dg-blob dg-blob-orange" style="width:22rem;height:22rem;top:-6rem;right:-6rem"></span>
     <span class="dg-blob dg-blob-green" style="width:18rem;height:18rem;bottom:-7rem;left:-5rem"></span>
 
@@ -448,29 +448,42 @@ tailwind.config = {
   </section>
 
   <!-- ================= FINAL CTA ================= -->
-  <section class="dg-section" style="background:var(--dg-brown);position:relative;overflow:hidden">
-    <span class="dg-blob dg-blob-orange" style="width:20rem;height:20rem;top:-6rem;right:-4rem"></span>
+  <section class="dg-section dg-close-on-brown" style="background:var(--dg-brown);position:relative;overflow:hidden">
+    <span class="dg-blob dg-blob-orange" style="width:22rem;height:22rem;top:-7rem;right:-5rem"></span>
+    <span class="dg-blob dg-blob-green" style="width:17rem;height:17rem;bottom:-8rem;left:-6rem"></span>
     <div class="dg-shell relative" style="z-index:1">
-      <div class="dg-card dg-card-pad text-center" style="padding-block:2.5rem;max-width:44rem;margin-inline:auto">
-        <span class="dg-badge dg-badge-solid mx-auto" style="width:max-content">
-          <i data-lucide="sparkles"></i>Start this week
-        </span>
-        <h2 class="text-2xl sm:text-3xl mt-3">Your first tiffin is 24 hours away</h2>
-        <p class="dg-lede mt-2.5">
-          Join as a weekly subscriber for &#8377;899, try seven days of hot homely meals, and decide then
-          whether to go monthly. Cancel anytime, no questions asked.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center mt-6">
-          <a class="dg-btn dg-btn-primary dg-btn-lg" href="signup.html">
-            <i data-lucide="user-round"></i>Create my account
-          </a>
-          <a class="dg-btn dg-btn-outline dg-btn-lg" href="plans.html">
-            <i data-lucide="wallet"></i>Compare plans
-          </a>
+      <div class="dg-card dg-close-grid" style="padding:clamp(1.4rem,3.5vw,2.4rem)">
+        <div>
+          <span class="dg-badge dg-badge-solid" style="width:max-content">
+            <i data-lucide="sparkles"></i>Start this week
+          </span>
+          <h2 class="text-2xl sm:text-3xl" style="margin-top:.8rem">Your first tiffin is 24 hours away</h2>
+          <p class="dg-lede" style="margin-top:.7rem">
+            Join as a weekly subscriber for &#8377;899, try seven days of hot homely meals, and decide then
+            whether to go monthly. Cancel anytime, no questions asked.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3" style="margin-top:1.6rem">
+            <a class="dg-btn dg-btn-primary dg-btn-lg" href="signup.html">
+              <i data-lucide="user-round"></i>Create my account
+            </a>
+            <a class="dg-btn dg-btn-outline dg-btn-lg" href="plans.html">
+              <i data-lucide="wallet"></i>Compare plans
+            </a>
+          </div>
+          <div class="dg-close-chips">
+            <span class="dg-close-chip"><i data-lucide="truck"></i>Free delivery in Zone 1</span>
+            <span class="dg-close-chip"><i data-lucide="circle-pause"></i>Pause any time</span>
+            <span class="dg-close-chip"><i data-lucide="badge-check"></i>No joining fee</span>
+          </div>
         </div>
-        <p class="text-xs mt-4" style="color:var(--dg-ink-mute)">
-          Free delivery in Zone 1 &middot; Pause any time &middot; No joining fee
-        </p>
+        <div class="dg-close-stack">
+          <div class="dg-close-frame dg-close-frame--4x3">
+            <img src="assets/images/cooker-tiffin.jpg" alt="A stacked steel tiffin carrier packed with a fresh home-style meal" width="800" height="600" loading="lazy">
+          </div>
+          <div class="dg-close-frame dg-close-frame--1x1 dg-close-frame--float">
+            <img src="assets/images/food-package.jpg" alt="A sealed DabbaGo tiffin box ready for delivery" width="400" height="400" loading="lazy">
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -118,6 +118,12 @@ tailwind.config = {
         </p>
       </div>
 
+      <a class="mn-picks-bar" id="dg-picks-bar" href="plans.html" hidden>
+        <i data-lucide="shopping-bag"></i>
+        <span><strong id="dg-picks-count">0</strong> dishes in your plan</span>
+        <span class="mn-picks-cta">Review plans<i data-lucide="arrow-right"></i></span>
+      </a>
+
       <div id="dg-menu-grid" class="grid gap-4" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,17.5rem),1fr))">
         <p class="dg-lede">Loading the menu…</p>
       </div>
@@ -146,20 +152,29 @@ tailwind.config = {
   <!-- ================= MENU CTA ================= -->
   <section class="dg-section" style="background:var(--dg-bg-soft)">
     <div class="dg-shell">
-      <div class="dg-card dg-card-pad text-center" style="padding-block:2.25rem;max-width:46rem;margin-inline:auto" data-dg-reveal>
-        <span class="dg-icon-tile dg-icon-tile-soft mx-auto"><i data-lucide="hand-platter"></i></span>
-        <h2 class="text-2xl sm:text-3xl mt-3">Found the dishes you like?</h2>
-        <p class="dg-lede mt-2">
-          Choose a plan and we will pack exactly what you have chosen every day. You can skip a dish
-          whenever you like &mdash; the menu just moves on to the next day.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center mt-5">
-          <a class="dg-btn dg-btn-primary dg-btn-lg" href="plans.html">
-            <i data-lucide="wallet"></i>See subscription plans
-          </a>
-          <a class="dg-btn dg-btn-outline dg-btn-lg" href="delivery-area.html">
-            <i data-lucide="map-pin"></i>Check delivery in my area
-          </a>
+      <div class="dg-card dg-close-grid dg-close-grid--flip" style="padding:clamp(1.4rem,3.5vw,2.4rem)" data-dg-reveal>
+        <div>
+          <span class="dg-icon-tile dg-icon-tile-soft"><i data-lucide="hand-platter"></i></span>
+          <h2 class="text-2xl sm:text-3xl" style="margin-top:.9rem">Found the dishes you like?</h2>
+          <p class="dg-lede" style="margin-top:.6rem">
+            Choose a plan and we will pack exactly what you have chosen every day. You can skip a dish
+            whenever you like &mdash; the menu just moves on to the next day.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3" style="margin-top:1.5rem">
+            <a class="dg-btn dg-btn-primary dg-btn-lg" href="plans.html">
+              <i data-lucide="wallet"></i>See subscription plans
+            </a>
+            <a class="dg-btn dg-btn-outline dg-btn-lg" href="delivery-area.html">
+              <i data-lucide="map-pin"></i>Check delivery in my area
+            </a>
+          </div>
+          <div class="dg-close-chips">
+            <span class="dg-close-chip"><i data-lucide="heart"></i>Save favourites</span>
+            <span class="dg-close-chip"><i data-lucide="shopping-bag"></i>Add dishes to your plan</span>
+          </div>
+        </div>
+        <div class="dg-close-frame dg-close-frame--4x3">
+          <img src="assets/images/veg-thali.jpg" alt="A full DabbaGo thali with dal, vegetables, roti and rice" width="800" height="600" loading="lazy">
         </div>
       </div>
     </div>

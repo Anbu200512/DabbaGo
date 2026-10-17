@@ -135,12 +135,22 @@ tailwind.config = {
         <p class="dg-lede">Scroll the table sideways on a phone to see every plan.</p>
       </div>
 
-      <div class="dg-table-wrap pl-compare-wrap mt-7" data-dg-reveal>
+      <div class="dg-table-wrap pl-compare-wrap dg-no-scrollbar mt-7" data-dg-reveal data-compare-wrap>
         <table id="dg-compare-body" class="dg-table pl-compare-table" style="min-width:52rem">
           <caption class="sr-only">Comparison of all DabbaGo subscription plans</caption>
         </table>
       </div>
-      <p class="dg-table-scroll-hint" style="margin-top:.55rem">Swipe the table sideways to see more plans</p>
+      <div class="pl-compare-foot">
+        <p class="dg-table-scroll-hint">Swipe or use the arrows to see more plans</p>
+        <div class="pl-compare-nav" data-compare-nav hidden>
+          <button type="button" class="dg-iconbtn pl-compare-nav-btn" data-compare-prev aria-label="Show previous plans">
+            <i data-lucide="chevron-left"></i>
+          </button>
+          <button type="button" class="dg-iconbtn pl-compare-nav-btn" data-compare-next aria-label="Show more plans">
+            <i data-lucide="chevron-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -207,6 +217,9 @@ tailwind.config = {
   <section class="dg-section pl-final-cta">
     <div class="dg-shell">
       <div class="pl-final-cta-card" data-dg-reveal>
+        <div class="dg-close-frame dg-close-frame--16x11" style="margin-bottom:1.6rem">
+          <img src="assets/images/greeting-thali.jpg" alt="A colourful DabbaGo thali plated and ready to eat" width="800" height="550" loading="lazy">
+        </div>
         <span class="dg-icon-tile dg-icon-tile-soft mx-auto"><i data-lucide="hand-platter"></i></span>
         <p class="dg-eyebrow">Fresh meals, made simple</p>
         <h2>Find a plan that fits your day.</h2>
@@ -214,6 +227,11 @@ tailwind.config = {
         <div class="pl-final-cta-actions">
           <a class="dg-btn dg-btn-primary dg-btn-lg" href="#plans-list"><i data-lucide="layers"></i>Explore plans</a>
           <a class="dg-btn dg-btn-outline dg-btn-lg" href="menu.html"><i data-lucide="book-open-text"></i>Browse the menu</a>
+        </div>
+        <div class="dg-close-stats" style="margin-top:1.75rem;text-align:center">
+          <div class="dg-close-stat"><b>&#8377;50</b><span>per full-day meal</span></div>
+          <div class="dg-close-stat"><b>3</b><span>meals a day, if you want</span></div>
+          <div class="dg-close-stat"><b>0</b><span>joining fee</span></div>
         </div>
       </div>
     </div>

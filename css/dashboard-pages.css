@@ -101,16 +101,15 @@
 .ad-sidebar-bottom .ad-signout:hover { background: var(--dg-danger); color: #fff; }
 .ad-nav-badge { display: grid; place-items: center; min-width: 1.35rem; height: 1.35rem; margin-left: auto; padding-inline: 0.3rem; border-radius: 99px; background: var(--dg-brand); color: #fff; font-size: 0.68rem; font-weight: 800; }
 .ad-sidebar-bottom { display: grid; gap: 0.4rem; margin-top: auto; }
-.dashboard-sidebar-controls { display: flex; justify-content: center; gap: 0.6rem; margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid var(--dg-line); }
 .ad-sidebar-bottom > span { display: flex; align-items: center; gap: 0.45rem; padding: 0.7rem 0.75rem; color: var(--dg-green-ink); font-size: 0.72rem; }
 .ad-sidebar-bottom > span svg { width: 0.95rem; }
-.ad-main-column { min-width: 0; }
+.ad-main-column { min-width: 0; display: flex; flex-direction: column; }
+.ad-main-column > .ad-content { flex: 1 1 auto; }
 .ad-topbar { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; padding-inline: clamp(1rem, 3vw, 2.5rem); border-bottom: 1px solid var(--dg-line); background: var(--dg-surface); }
 .dashboard-menu-toggle { display: none; }
 .dashboard-sidebar-scrim { display: none; }
-.dashboard-topbar-controls { display: none; align-items: center; gap: 0.5rem; }
-.ad-topbar > div:first-child { display: grid; gap: 0.08rem; }
-.dashboard-topbar-brand { display: flex !important; align-items: center; gap: 1.1rem; min-width: 0; }
+.dashboard-topbar-controls { display: flex; align-items: center; gap: 0.5rem; }
+.dashboard-topbar-brand { display: flex !important; align-items: center; gap: 1.75rem; min-width: 0; }
 .dashboard-topbar-brand > span { display: grid; gap: 0.08rem; min-width: 0; }
 .ad-topbar-label { color: var(--dg-ink-mute); font-size: 0.7rem; }
 .ad-topbar strong { color: var(--dg-ink); font-size: 0.88rem; }
@@ -258,7 +257,7 @@
     .ad-nav-badge { min-width: 1.15rem; height: 1.15rem; }
     .ad-content { padding: 1.1rem 0.75rem 2rem; }
     .ad-topbar { min-height: 3.6rem; padding-inline: 0.8rem; }
-    .dashboard-topbar-brand { gap: 0.7rem; }
+    .dashboard-topbar-brand { gap: 1rem; }
     .ad-live { font-size: 0; }
     .ad-live i { width: 0.55rem; height: 0.55rem; }
     .ad-page-intro { align-items: flex-start; }
@@ -313,8 +312,6 @@
 
 @media (min-width: 1000px) and (max-width: 1199px) and (orientation: landscape) {
     .standalone-dashboard .dashboard-topbar-brand > .dg-logo { display: none !important; }
-    .dashboard-sidebar-controls { display: none; }
-    .dashboard-topbar-controls { display: flex; }
 }
 
 @media (max-width: 760px) and (prefers-reduced-motion: reduce) {

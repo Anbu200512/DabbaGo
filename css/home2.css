@@ -17,13 +17,24 @@
 .dg2-hero {
   position: relative;
   overflow: hidden;
-  background: var(--dg-bg-soft);
+  display: flex;
+  flex-direction: column;
+  min-height: var(--dg-hero-h);
   text-align: center;
+  background-color: var(--dg-bg-soft);
+  background-image: var(--dg-hero-scrim), url("../assets/images/veg-thali.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .dg2-hero-inner {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
   padding-block: 3.5rem;
 }
 

@@ -40,12 +40,7 @@
       <button type="button" class="ad-nav-item" data-admin-tab="deliveries"><i data-lucide="truck"></i>Deliveries</button>
       <button type="button" class="ad-nav-item" data-admin-tab="reports"><i data-lucide="chart-column"></i>Reports</button>
     </nav>
-    <div class="dashboard-sidebar-controls" aria-label="Display options">
-      <button type="button" class="dg-iconbtn" data-dg-dir-toggle aria-pressed="false" aria-label="Switch to right-to-left" title="Switch to RTL"><i data-lucide="arrow-right-left" class="dg-icon-ltr"></i><i data-lucide="arrow-left-right" class="dg-icon-rtl"></i></button>
-      <button type="button" class="dg-iconbtn" data-dg-theme-toggle aria-label="Toggle dark mode"><i data-lucide="moon"></i></button>
-    </div>
     <div class="ad-sidebar-bottom">
-      <a class="ad-nav-item" href="index.html"><i data-lucide="external-link"></i>View website</a>
       <button type="button" class="ad-nav-item ad-signout" data-admin-signout><i data-lucide="log-out"></i>Sign out</button>
       <span><i data-lucide="circle-check"></i>All systems operational</span>
     </div>
@@ -60,11 +55,11 @@
       </div>
       <div class="dp-topbar-actions">
         <span class="ad-live"><i></i>Live operations</span>
+        <span class="ad-admin-avatar" aria-label="Administrator">A</span>
         <div class="dashboard-topbar-controls" aria-label="Display options">
           <button type="button" class="dg-iconbtn" data-dg-dir-toggle aria-pressed="false" aria-label="Switch to right-to-left" title="Switch to RTL"><i data-lucide="arrow-right-left" class="dg-icon-ltr"></i><i data-lucide="arrow-left-right" class="dg-icon-rtl"></i></button>
           <button type="button" class="dg-iconbtn" data-dg-theme-toggle aria-label="Toggle dark mode"><i data-lucide="moon"></i></button>
         </div>
-        <span class="ad-admin-avatar" aria-label="Administrator">A</span>
         <button type="button" class="dg-iconbtn dashboard-menu-toggle" data-dashboard-sidebar-toggle aria-expanded="false" aria-label="Open dashboard menu"><i data-lucide="menu"></i></button>
       </div>
     </header>
@@ -77,9 +72,11 @@
       <section id="ad-panel-deliveries" class="ad-panel is-hidden"></section>
       <section id="ad-panel-reports" class="ad-panel is-hidden"></section>
     </main>
+    <div id="dg-minifoot-root"></div>
   </div>
 </div>
 <script defer src="js/main.js"></script>
+<script defer src="js/footer.js"></script>
 <script defer src="js/admin.js"></script>
 <script defer src="js/dashboard-sidebar.js"></script>
 </body>
